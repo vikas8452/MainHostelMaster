@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">HostelMaster</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_or_phone">Email or phone</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+
+    <string-array name="Country">
+        <item>(+91)India</item>
+        <item>(+1)United States</item>
+        <item>(+880)Bangladesh</item>
+        <item>(+977)Nepal</item>
+    </string-array>
+
+    <string-array name="Issues">
+        <item>Choose Problem</item>
+        <item>Plumber</item>
+        <item>Hot Water</item>
+        <item>Food</item>
+        <item>Drinking Water</item>
+        <item>A.C./Cooler</item>
+        <item>Electrical</item>
+        <item>Laundry</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="title_activity_signupp">signupp</string>
+
+    <string name="signuptxt">Get Registered In Just One Single Step</string>
+    <string name="freedetails">It\'s absolutely free to sign up - so join our network today!</string>
+    <string name="click_here_to_start">Click here to start</string>
+    <string name="Inventory_management">INVENTORY MANAGEMENT</string>
+    <string name="free_to_join">FREE TO JOIN</string>
+    <string name="manage_details">It encourage guest to book your property quicker</string>
+    <string name="Instant_booking">INSTANT BOOKING</string>
+    <string name="Instant_details">Guest will able to book your property easier from anywhere anytime!</string>
+    <string name="property_signup">PROPERTY &amp; CONTACT DETAILS</string>
+    <string name="property_name">Property name</string>
+    <string name="total_bedrooms">Total number of bedrooms</string>
+    <string name="total_beds">Number of beds (total occupancy)</string>
+    <string name="address_1">Address 1</string>
+    <string name="address_2">Address 2</string>
+    <string name="state">State (for ex. U.P)</string>
+    <string name="post_code">Post Code / Zip Code</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="contact_details">Contact Details</string>
+    <string name="contact_name">Contact name</string>
+    <string name="manager_email">Manager e-mail address</string>
+    <string name="booking_email">Booking e-mail address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="phone_number2">Additional contact number</string>
+    <string name="sign_up">Sign-Up</string>
+    <string name="terms_condition">By Clicking sign-up you are agreeing to our terms &amp; conditions </string>
+    <string name="review_edit">Review Your Form</string>
+    <string name="edit">Edit</string>
+
+    <string name="you_haven_t_book_any_hostel_using_this_app">You haven\'t book any hostel using this app</string>
+    <string name="your_assigned_room_number_displayed_here">Your assigned room number displayed here</string>
+    <string name="room_no">Room No</string>
+    <string name="my_hostel">My Hostel</string>
+    <string name="mess_schedule">Mess Schedule</string>
+    <string name="get_token">Get Token</string>
+    <string name="college_name">College</string>
+    <string name="student_name">Name</string>
+    <string name="get_your_token">Get Your Token</string>
+    <string name="rate_your_hostel">Rate Your Hostel</string>
+    <string name="rate_submit">Submit</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="submit">SUBMIT</string>
+    <string name="send">Send</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="select">Would you use this app again ?</string>
+    <string name="additional_comment">Additional Comment</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+
+
+    <string name="txt1">Refer Your Freind &amp;Earn 500</string>
+    <string name="txt2">Refer your freind to book a property with your referral code. When your Freind\s stay begins both of you get Rs.500 each</string>
+    <string name="invitation_title">Refer And Earn</string>
+    <string name="invitation_message">Very Nice App to find hostels for You and Your Loved Ones.We both get Rs.500 on installing it. </string>
+    <string name="invitation_deep_link">https://www.google.co.in</string>
+    <string name="invitation_custom_image">http://www.techmarshals.com/wp-content/uploads/2017/11/Refer-Earn.png</string>
+    <string name="invitation_cta"></string>
+
+</resources>

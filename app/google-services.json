@@ -1,0 +1,319 @@
+{
+  "project_info": {
+    "project_number": "38556870881",
+    "firebase_url": "https://hostelmaster-641c5.firebaseio.com",
+    "project_id": "hostelmaster-641c5",
+    "storage_bucket": "hostelmaster-641c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38556870881:android:64e7e4f7b3ba0652",
+        "android_client_info": {
+          "package_name": "com.example.hp.refreandearn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38556870881-4pco0tljoc0bpg4hrjud6ltbhstuv52g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hp.refreandearn",
+            "certificate_hash": "4025490f9375fd00c8a1a9c729093547b96b4993"
+          }
+        },
+        {
+          "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATFxWur_M2pjhiwvzweuFBBgtSZ4GKICM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38556870881:android:ee3b747c3b03c285",
+        "android_client_info": {
+          "package_name": "com.example.hp.workwithus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38556870881-fh8tmgrkkpanodkfd2v1cmlbepeu6lc4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hp.workwithus",
+            "certificate_hash": "4025490f9375fd00c8a1a9c729093547b96b4993"
+          }
+        },
+        {
+          "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATFxWur_M2pjhiwvzweuFBBgtSZ4GKICM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38556870881:android:188c1b4ef3fcf420",
+        "android_client_info": {
+          "package_name": "com.example.dell.hostel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38556870881-eb87t07kgs0ghagpmprilicj7t57tj5o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dell.hostel",
+            "certificate_hash": "c973d0a8c5c0fcbb0c7890d7ed838213137b5e02"
+          }
+        },
+        {
+          "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATFxWur_M2pjhiwvzweuFBBgtSZ4GKICM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38556870881:android:575f9c3e0c5d49f5",
+        "android_client_info": {
+          "package_name": "com.example.dell.founderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38556870881-cjj0rp4mj92a2j3vhk42kpsm23k7eq42.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dell.founderapp",
+            "certificate_hash": "c973d0a8c5c0fcbb0c7890d7ed838213137b5e02"
+          }
+        },
+        {
+          "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATFxWur_M2pjhiwvzweuFBBgtSZ4GKICM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38556870881:android:e89acc20185a1eb5",
+        "android_client_info": {
+          "package_name": "com.example.dell.exploreactivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38556870881-mo12548jjqdfcj4k47nq4eafqv504v8p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dell.exploreactivity",
+            "certificate_hash": "c973d0a8c5c0fcbb0c7890d7ed838213137b5e02"
+          }
+        },
+        {
+          "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATFxWur_M2pjhiwvzweuFBBgtSZ4GKICM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38556870881:android:c6c223ec9cf9d41a",
+        "android_client_info": {
+          "package_name": "com.example.dell.searchactivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38556870881-7o3uppi6gh4esf8ju0ck32vhvsupmh0g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dell.searchactivity",
+            "certificate_hash": "c973d0a8c5c0fcbb0c7890d7ed838213137b5e02"
+          }
+        },
+        {
+          "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATFxWur_M2pjhiwvzweuFBBgtSZ4GKICM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38556870881:android:1b7efa54b443ba79",
+        "android_client_info": {
+          "package_name": "com.hostelmanager.hostelmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38556870881-h0m299h7i5q7lhoj14d1s05r1bc1ehs6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hostelmanager.hostelmaster",
+            "certificate_hash": "c973d0a8c5c0fcbb0c7890d7ed838213137b5e02"
+          }
+        },
+        {
+          "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATFxWur_M2pjhiwvzweuFBBgtSZ4GKICM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38556870881-6elr5r7l1d9u3898ajpblajbd5v993nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

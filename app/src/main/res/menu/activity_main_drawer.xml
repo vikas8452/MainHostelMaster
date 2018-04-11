@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/explore"
+            android:icon="@drawable/sear"
+            android:title="Explore" />
+        <item
+            android:id="@+id/myhostel"
+            android:icon="@drawable/host"
+            android:title="My Hostel" />
+        <item
+            android:id="@+id/myaccount"
+            android:icon="@drawable/myaccount"
+            android:title="My Account" />
+        <item
+            android:id="@+id/referandearn"
+            android:icon="@drawable/rne"
+            android:title="Refer and earn" />
+        <item
+            android:id="@+id/issues"
+            android:icon="@drawable/issue"
+            android:title="Issues" />
+        <item
+            android:id="@+id/mywallet"
+            android:icon="@drawable/wallet"
+            android:title="My Wallet" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/feedback"
+                android:icon="@drawable/feed"
+                android:title="Feedback" />
+            <item
+                android:id="@+id/workwithus"
+                android:icon="@drawable/work"
+                android:title="Work With Us"/>
+            <item
+                android:id="@+id/aboutus"
+                android:icon="@drawable/about"
+                android:title="About us" />
+            <item
+                android:id="@+id/rateus"
+                android:icon="@drawable/rateus"
+                android:title="Rate Us" />
+        </menu>
+    </item>
+
+</menu>

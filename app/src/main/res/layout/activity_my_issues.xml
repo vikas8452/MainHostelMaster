@@ -1,0 +1,112 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:id="@+id/bbbbb"
+        android:background="@drawable/phrse02"
+        tools:context="com.hostelmanager.hostelmaster.MyIssues">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/aaaaa"
+            tools:context="com.hostelmanager.hostelmaster.MyIssues">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="35dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="false"
+                android:cropToPadding="true"
+                android:icon="@drawable/host"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/issuesissuesp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ghgh" />
+
+            <Spinner
+                android:id="@+id/issuesissuesp"
+                android:layout_width="350dp"
+                android:layout_height="30dp"
+                tools:ignore="MissingConstraints"
+                android:layout_below="@id/imageView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/issuesDescription"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/issuesissuesp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="21dp"
+                android:ems="10"
+                android:hint="Description"
+                android:focusableInTouchMode="true"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/issueSubmit"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:layout_below="@id/issuesDescription"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="21dp"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/issueHousekeeping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/issueSubmit"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="21dp"
+                android:text="Housekeeping"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/issuesWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/issueHousekeeping"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="21dp"
+                android:text="Wifi"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/issuesWifi"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/swipeup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button2"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:text="Swipe Up To See Your Submitted Issues" />
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

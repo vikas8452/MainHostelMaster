@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="2dp">
+    <!--android:background="@drawable/phrse02"-->
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/hostelmy"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <TextView
+            style="@style/headings"
+            android:layout_marginTop="8dp"
+            android:id="@+id/my_hostel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_hostel" />
+
+        <TextView
+            style="@style/details"
+            android:id="@+id/my_hostel_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/you_haven_t_book_any_hostel_using_this_app" />
+
+        <TextView
+            style="@style/headings"
+            android:id="@+id/room_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/room_no" />
+
+        <TextView
+            style="@style/details"
+            android:id="@+id/assigned"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/your_assigned_room_number_displayed_here" />
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp">
+
+        <Button
+            android:id="@+id/mess_Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mess_schedule" />
+        <Button
+            android:id="@+id/get_Token"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/get_token" />
+    </LinearLayout>
+
+</LinearLayout>

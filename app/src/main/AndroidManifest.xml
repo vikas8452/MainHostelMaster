@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hostelmanager.hostelmaster">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignUp">
+            <intent-filter>
+                <action android:name="com.hostelmanager.hostelmaster.SignUp" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignInerActivity" />
+        <activity android:name=".AppSignUp" />
+        <activity android:name=".MyIssues"></activity>
+        <activity android:name=".SliderFromIssues" />
+        <activity android:name=".propertysignup" />
+        <activity android:name=".Successful_sign_up" />
+        <activity android:name=".review_edit" />
+        <activity android:name=".workwithus" />
+        <activity
+            android:name=".mess_schedulepopup"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name=".getToken"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name=".rating_bar"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".feedback" />
+        <activity android:name=".refer_and_earn" />
+        <activity android:name=".SetMobile" />
+        <activity android:name=".MobileAndOTP" />
+        <activity
+            android:name=".Issues"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".Notifications"></activity>
+        <service android:name=".RecieveNotification2">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"></action>
+            </intent-filter>
+        </service>
+        <service android:name=".RecieveNotification">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
+            </intent-filter>
+        </service>
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/issue" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <meta-data android:name="firebase_messaging_auto_init_enabled"
+            android:value="true" />
+
+
+    </application>
+
+</manifest>

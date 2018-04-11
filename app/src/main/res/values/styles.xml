@@ -1,0 +1,78 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!-- Base application theme. -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="colorfreetojoin">
+
+        <item name="android:textColor">#ff8c00</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="btnbackground">
+        <item name="android:background">#ff8c00</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+    <style name="detailhadding">
+
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">364dp</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+    <style name="space_between">
+
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+    <style name="headings">
+
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#282e38</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+    <style name="details">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#282e38</item>
+
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="AppTheme.CustomTheme">
+        <item name="android:windowCloseOnTouchOutside">true</item>
+
+
+        <item name="android:windowIsTranslucent">true</item>
+
+
+    </style>
+
+    <style name="btn_background">
+
+        <item name="android:background">#ff8c00</item>
+    </style>
+
+
+
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/border"
+    tools:context="com.hostelmanager.hostelmaster.rating_bar"
+    android:padding="5dp"
+    android:popupBackground="@drawable/img" >
+
+
+    <TextView
+        android:id="@+id/rateyourhostel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:textStyle="bold"
+        android:textSize="23sp"
+        android:layout_gravity="center"
+        android:text="@string/rate_your_hostel"
+        />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rateyourhostel"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+
+        android:layout_marginTop="30dp"
+        android:numStars="5"
+        android:rating="0" />
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center">
+
+
+        <Button
+            android:id="@+id/cancel"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:paddingLeft="35dp"
+            android:text="@string/cancel" />
+        <Button
+            android:id="@+id/send"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="170dp"
+            android:background="@color/grey"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:paddingRight="25dp"
+        android:text="@string/send" />
+    </LinearLayout>
+</LinearLayout>
