@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please your data is loading");
+        progressDialog.setMessage("Please wait w your data is loading");
 
 
 
