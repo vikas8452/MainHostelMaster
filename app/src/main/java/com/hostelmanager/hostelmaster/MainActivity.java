@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
     private ProgressDialog progressDialog;
     PhoneAuthCredential phoneAuthCredential;
 
-    @Override
+   /* @Override
     protected void onStart() {
         super.onStart();
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this,MobileAndOTP.class));
             finish();
         }
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait while your is loading");
+        progressDialog.setMessage("Please wait while data is loading");
 
 
 
@@ -279,10 +279,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.explore) {
-            Explore explore=new Explore();
+          /*  Explore explore=new Explore();
             android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativefrag,explore).commit();
-
+*/
+          Intent intent =new Intent (this,SearchActivity.class);
+          startActivity(intent);
         } else if (id == R.id.myhostel) {
             //startActivity(new Intent(this,hostel.class));
             MyHostell myHostell=new MyHostell();

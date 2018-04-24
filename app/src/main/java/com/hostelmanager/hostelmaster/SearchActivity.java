@@ -42,7 +42,7 @@ static final int REQUEST_LOCATION=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_explore);
         Toast.makeText(this, "onLocationChanged before", Toast.LENGTH_SHORT).show();
 
 
