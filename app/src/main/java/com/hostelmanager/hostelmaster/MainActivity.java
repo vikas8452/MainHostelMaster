@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
     private ProgressDialog progressDialog;
     PhoneAuthCredential phoneAuthCredential;
 
-    @Override
+   /* @Override
     protected void onStart() {
         super.onStart();
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this,MobileAndOTP.class));
             finish();
         }
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +93,8 @@ public class MainActivity extends AppCompatActivity
         mStorageRef = FirebaseStorage.getInstance().getReference();
         firebaseAuth= FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-if(currentUser!=null)
+
+        if(currentUser!=null)
         OneSignal.sendTag("User_ID",currentUser.getPhoneNumber());
        /* if(currentUser == null){
             startActivity(new Intent(this,MobileAndOTP.class));
