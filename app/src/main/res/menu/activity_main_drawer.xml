@@ -28,6 +28,10 @@
             android:id="@+id/mywallet"
             android:icon="@drawable/wallet"
             android:title="My Wallet" />
+        <item
+            android:id="@+id/buyandSell"
+            android:icon="@drawable/host"
+            android:title="Sell and Buy" />
     </group>
 
     <item android:title="Communicate">

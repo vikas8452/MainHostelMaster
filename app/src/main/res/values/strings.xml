@@ -92,5 +92,11 @@
     <string name="invitation_deep_link">https://www.google.co.in</string>
     <string name="invitation_custom_image">http://www.techmarshals.com/wp-content/uploads/2017/11/Refer-Earn.png</string>
     <string name="invitation_cta"></string>
+    <string name="title_activity_buy_and_sell">BuyAndSell</string>
+    <string name="title_home">Buy Books</string>
+    <string name="title_dashboard">Sell Books</string>
+    <string name="title_notifications">Your Books</string>
+    <string name="spinner_title1">Select Department</string>
+    <string name="spinner_title2">Select Semester</string>
 
 </resources>

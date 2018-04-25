@@ -315,11 +315,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.workwithus) {
             startActivity(new Intent(this,workwithus.class));
 
-        }/*else if (id == R.id.aboutus) {
+        }else if (id == R.id.buyandSell) {
 
-            startActivity(new Intent(this,MyIssues.class));
+            startActivity(new Intent(this,BuyAndSell.class));
 
-        }else if (id == R.id.rateus) {
+        }/*else if (id == R.id.rateus) {
             startActivity(new Intent(this,MyIssues.class));
         }*/
 
