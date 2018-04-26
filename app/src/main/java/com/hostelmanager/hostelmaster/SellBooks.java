@@ -85,7 +85,7 @@ public class SellBooks extends Fragment implements AdapterView.OnItemSelectedLis
         btnLogin1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), MainActivity.class);
+                Intent i = new Intent(getActivity(), finalBookDetails.class);
                 i.putExtra("get_department", item1);
                 i.putExtra("get_semester", item2);
                 startActivity(i);

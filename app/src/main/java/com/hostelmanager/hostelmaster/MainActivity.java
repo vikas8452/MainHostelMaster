@@ -317,8 +317,9 @@ public class MainActivity extends AppCompatActivity
 
         }else if (id == R.id.buyandSell) {
 
-            startActivity(new Intent(this,BuyAndSell.class));
-
+            Intent intent=new Intent(this,BuyAndSell.class);
+          intent.putExtra("msg","");
+            startActivity(intent);
         }/*else if (id == R.id.rateus) {
             startActivity(new Intent(this,MyIssues.class));
         }*/

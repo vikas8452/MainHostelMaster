@@ -19,10 +19,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme">
-
-        </activity>
-        <activity android:name=".SearchActivity"></activity>
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".SearchActivity" />
         <activity android:name=".GalleryActivity" />
         <activity android:name=".SignUp">
             <intent-filter>
@@ -88,15 +86,17 @@
         <activity android:name=".NavigatorActivityBuyAndSell" />
         <activity
             android:name=".BuyAndSell"
-            android:label="@string/title_activity_buy_and_sell"></activity>
-        <activity android:name=".SplashScreen"
+            android:label="@string/title_activity_buy_and_sell" />
+        <activity
+            android:name=".SplashScreen"
             android:theme="@style/AppTheme.NoActionBar.Fullscreen">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".finalBookDetails"></activity>
     </application>
 
 </manifest>

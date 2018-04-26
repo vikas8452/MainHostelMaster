@@ -1,5 +1,6 @@
 package com.hostelmanager.hostelmaster;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -19,7 +20,7 @@ import com.hostelmanager.hostelmaster.helper.BottomNavigationBehavior;
 
 public class BuyAndSell extends AppCompatActivity {
 
-private ActionBar actionBar;
+
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -51,7 +52,13 @@ private ActionBar actionBar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_and_sell);
+        Intent intent =getIntent();
+       String msg= intent.getStringExtra("msg");
+       if(msg.equals("openMyBook"))
+       {
+           loadFragment(new YourBooks());
 
+       }else loadFragment(new BuyBooks());
 
      //   mTextMessage = (TextView) findViewById(R.id.message);
        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -60,7 +67,7 @@ private ActionBar actionBar;
         layoutParams.setBehavior(new BottomNavigationBehavior());
    // actionBar=getSupportActionBar();
    // actionBar.setTitle("Buy");
-         loadFragment(new BuyBooks());
+
     }
 
 
