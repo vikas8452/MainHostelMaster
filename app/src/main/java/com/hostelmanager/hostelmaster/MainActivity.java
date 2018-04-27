@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
     private ProgressDialog progressDialog;
     PhoneAuthCredential phoneAuthCredential;
 
-   /* @Override
+    @Override
     protected void onStart() {
         super.onStart();
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this,MobileAndOTP.class));
             finish();
         }
-    }*/
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

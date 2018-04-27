@@ -2,41 +2,50 @@ package com.hostelmanager.hostelmaster;
 
 public class BuySellSubject {
 
-    private String department;
-    private String semester;
-    private String subject_name;
+    private String bookName;
+    private String authorName;
+    private String bookPrice;
+   // private String bookDescription;
+    private String bookCondition;
 
     public BuySellSubject(){}
 
-    public BuySellSubject(String department, String semester, String subject_name){
-        this.department = department;
-        this.semester = semester;
-        this.subject_name = subject_name;
+    public BuySellSubject(String bookName, String authorName, String bookPrice, String bookCondition) {
+        this.bookName = bookName;
+        this.authorName = authorName;
+        this.bookPrice = bookPrice;
+     //   this.bookDescription = bookDescription;
+        this.bookCondition = bookCondition;
     }
 
-    public void setdepartment(String department){
-        this.department = department;
+    public String getBookName() {
+        return bookName;
     }
 
-    public void setsemester(String semester){
-        this.semester = semester;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 
-    public void setsubject_name(String subject_name){
-        this.subject_name = subject_name;
+    public String getAuthorName() {
+        return authorName;
     }
 
-    public String getdepartment(){
-        return this.department;
+    public void setAuthorName(String authorName) { this.authorName = authorName; }
+
+    public String getBookPrice() {
+        return bookPrice;
     }
 
-    public String getsemester(){
-        return this.semester;
+    public void setBookPrice(String bookPrice) {    
+        this.bookPrice = bookPrice;
     }
 
-    public String getsubject_name(){
-        return this.subject_name;
+    public String getBookCondition() {
+        return bookCondition;
     }
 
+    public void setBookCondition(String bookCondition) {
+        this.bookCondition = bookCondition;
+    }
 }
 

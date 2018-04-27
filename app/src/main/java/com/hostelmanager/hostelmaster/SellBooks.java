@@ -97,6 +97,7 @@ public class SellBooks extends Fragment implements AdapterView.OnItemSelectedLis
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
         switch(adapterView.getId())
         {
             case R.id.spinner1:
