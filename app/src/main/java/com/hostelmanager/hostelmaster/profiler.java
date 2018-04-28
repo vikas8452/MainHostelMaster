@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -41,6 +43,7 @@ public class profiler extends Fragment {
     private DatabaseReference myRef;
     private StorageReference mStorageRef;
     private Button update;
+    int flag = 0;
 
 
     public profiler() {
@@ -75,11 +78,36 @@ public class profiler extends Fragment {
             startActivity(new Intent(getActivity(),SignInerActivity.class));
             return null;
         }
+        String phone = firebaseUser.getPhoneNumber();
+
 
         final String userId = firebaseUser.getUid();
         mStorageRef = FirebaseStorage.getInstance().getReference();
         myRef = FirebaseDatabase.getInstance().getReference();
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (!snapshot.hasChild("7388796555")) {
+                    // run some code
+                    flag = 1;
+                    Toast.makeText(getContext(),"You are not yet registered",Toast.LENGTH_SHORT).show();
+                    return ;
+                }else{
+                    flag=0;
+                    FirebaseMessaging.getInstance().subscribeToTopic("News");
+                    FirebaseMessaging.getInstance().subscribeToTopic("Movies");
+                    myRef.child("7388796555").child("token").setValue(FirebaseInstanceId.getInstance().getToken());
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        if(flag==1)
+            return null;
+        else
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot ds) {
@@ -92,7 +120,7 @@ public class profiler extends Fragment {
                 tv1.setText(userInfo.getFname());
                 tv2.setText(userInfo.getMob());
 
-                imageView = view.findViewById(R.id.profilepic);
+                /*imageView = view.findViewById(R.id.profilepic);
 
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 StorageReference storageReference2= mStorageRef.child("profile").child(user.getUid());
@@ -105,7 +133,7 @@ public class profiler extends Fragment {
                 });}
                 catch(Exception e){
                     Toast.makeText(getActivity(),""+e,Toast.LENGTH_SHORT).show();
-                }
+                }*/
 
             }
 
@@ -115,7 +143,7 @@ public class profiler extends Fragment {
             }
         });
 
-        tv3=view.findViewById(R.id.profileEmailid);
+        /*tv3=view.findViewById(R.id.profileEmailid);
         tv3.setText(firebaseUser.getEmail());
 
         tv4=view.findViewById(R.id.profileLogouttv);
@@ -160,7 +188,7 @@ public class profiler extends Fragment {
                 progressDialo.dismiss();
 
             }
-        });
+        });*/
         return view;
     }
 

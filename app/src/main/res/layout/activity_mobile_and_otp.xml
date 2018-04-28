@@ -10,33 +10,52 @@
         tools:context="com.hostelmanager.hostelmaster.MobileAndOTP">
 
         <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:id="@+id/noshower"
+        <FrameLayout
+            android:id="@+id/fly"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:text="OTP has been sent to "
             android:layout_marginTop="23dp"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
+            android:layout_alignParentTop="true">
 
-        <TextView
-            android:id="@+id/nochange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/phone"
-            android:layout_below="@+id/noshower"
-            android:text="Click here "
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
+            <TextView
+                android:id="@+id/noshower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="OTP has been sent to "
+                android:textAppearance="@style/TextAppearance.AppCompat" />
 
-        <TextView
-            android:id="@+id/noshowe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/noshower"
-            android:layout_marginStart="9dp"
-            android:layout_toEndOf="@+id/nochange"
-            android:text=" To change"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
+            <TextView
+                android:id="@+id/noshow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/noshower"
+                android:layout_marginLeft="140dp"
+                android:text="+x 9876543210"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <TextView
+                android:id="@+id/nochange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="55dp"
+                android:text="Click here"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
+
+
+            <TextView
+                android:id="@+id/noshowe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="135dp"
+                android:text="To change"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        </FrameLayout>
+
 
         <EditText
             android:id="@+id/phone"
@@ -44,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="23dp"
-            android:layout_below="@+id/nochange"
+            android:layout_below="@+id/fly"
             android:ems="10"
             android:hint="PhoneNumber"
             android:inputType="phone" />
@@ -54,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/nochange"
+            android:layout_below="@+id/fly"
             android:layout_marginTop="35dp"
             android:ems="10"
             android:hint="Enter OTP"
@@ -80,12 +99,14 @@
             android:layout_marginTop="45dp" />
 
         <TextView
-            android:id="@+id/detail"
+            android:id="@+id/info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_marginTop="250dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="200dp" />
+            android:text="Click here "
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
+
 
 
     </RelativeLayout>

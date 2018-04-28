@@ -98,5 +98,6 @@
     <string name="title_notifications">Your Books</string>
     <string name="spinner_title1">Select Department</string>
     <string name="spinner_title2">Select Semester</string>
+    <string name="default_notification_channel_id">0</string>
 
 </resources>

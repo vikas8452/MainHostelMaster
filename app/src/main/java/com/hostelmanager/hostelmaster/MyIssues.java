@@ -104,6 +104,12 @@ public class MyIssues extends AppCompatActivity implements AdapterView.OnItemSel
                 @Override
                 public void onClick(View v) {
 
+                    Intent intent = new Intent();
+                    intent.setAction("com.hostelmanager.sendbroadcast");
+                    intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                    intent.putExtra("data", "Notice me senpai!");
+                    sendBroadcast(intent);
+
                     descr = description.getText().toString().replace("\n", "   ").trim();
 
                     if (issuetype.equals("Choose Problem")) {

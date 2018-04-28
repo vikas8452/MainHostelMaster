@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MobileAndOTP extends AppCompatActivity {
 
-    private TextView tv1,tv2,tv3,nochange,tv4,tv5;
+    private TextView tv1,tv2,tv3,nochange,tv4,tv5,tv6;
     private Button button1,button2;
     private boolean mVerificationInProgress = false;
     private String mVerificationId;
@@ -42,7 +42,7 @@ public class MobileAndOTP extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private DatabaseReference databaseReference;
     String phoneNumber;
-    String gname,email,uid;
+    String gname,email,uid,name;
     Uri filepath;
     private boolean doubleBackToExitPressedOnce;
 
@@ -60,6 +60,12 @@ public class MobileAndOTP extends AppCompatActivity {
         phoneNumber = savedInstanceState.getString("mobile");*/
         setContentView(R.layout.activity_mobile_and_otp);
 
+        Intent i =getIntent();
+        name = i.getStringExtra("name");
+        email = i.getStringExtra("email");
+        phoneNumber = i.getStringExtra("mobile");
+
+
         mAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -70,16 +76,17 @@ public class MobileAndOTP extends AppCompatActivity {
         button2 = findViewById(R.id.verify);
         nochange = findViewById(R.id.nochange);
         tv4 = findViewById(R.id.noshowe);
-        tv5 = findViewById(R.id.noshower);
+        tv6 = findViewById(R.id.noshower);
+        tv5 = findViewById(R.id.noshow);
+        tv3 = findViewById(R.id.info);
+        tv3.setText(name + " " + email + " " + phoneNumber);
 
         tv2.setVisibility(View.GONE);
         tv4.setVisibility(View.GONE);
         tv5.setVisibility(View.GONE);
+        tv6.setVisibility(View.GONE);
         nochange.setVisibility(View.GONE);
         button2.setVisibility(View.GONE);
-
-        tv3 = findViewById(R.id.detail);
-        tv3.setText(gname +" "+ email +" "+ uid);
 
         if(phoneNumber!=null){
             tv1.setText(phoneNumber);
@@ -115,12 +122,15 @@ public class MobileAndOTP extends AppCompatActivity {
                 mVerificationId = s;
                 mResendToken = forceResendingToken;
 
+                mVerificationId = s;
+                mResendToken = forceResendingToken;
+
                 tv1.setVisibility(View.GONE);
                 button1.setVisibility(View.GONE);
-                tv5.setText(tv5.getText() + phoneNumber);
                 tv2.setVisibility(View.VISIBLE);
                 tv4.setVisibility(View.VISIBLE);
                 tv5.setVisibility(View.VISIBLE);
+                tv6.setVisibility(View.VISIBLE);
                 nochange.setVisibility(View.VISIBLE);
                 button2.setVisibility(View.VISIBLE);
                 nochange.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +139,7 @@ public class MobileAndOTP extends AppCompatActivity {
                         tv2.setVisibility(View.GONE);
                         tv4.setVisibility(View.GONE);
                         tv5.setVisibility(View.GONE);
+                        tv6.setVisibility(View.GONE);
                         nochange.setVisibility(View.GONE);
                         button2.setVisibility(View.GONE);
                         nochange.setVisibility(View.GONE);
@@ -179,6 +190,21 @@ public class MobileAndOTP extends AppCompatActivity {
         //register();
     }
 
+    /*private void saveuserinfo() {
+
+        UserInfo userInfo=new UserInfo(name,phoneNumber,"");
+
+        databaseReference.child(phoneNumber).setValue(userInfo);
+
+        UserInfo aa= new UserInfo(" "," ");
+        databaseReference.child(phoneNumber).child("Issues").setValue(aa);
+
+        databaseReference.child(phoneNumber).child("Notifications").child("Topic").setValue(" ");
+        databaseReference.child(phoneNumber).child("Notifications").child("Desc").setValue(" ");
+        databaseReference.child(phoneNumber).child("email").setValue(email);
+
+        startActivity(new Intent(MobileAndOTP.this,MainActivity.class));
+    }
     /*private void register(){
         progressDialog.setMessage("Registerring user please wait...");
         progressDialog.show();
@@ -222,8 +248,8 @@ public class MobileAndOTP extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(MobileAndOTP.this,"Verified",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MobileAndOTP.this,MainActivity.class);
-                            UserInfo userInfo=new UserInfo(" "," ");
-                            databaseReference.child("issues").setValue(userInfo);
+                            //UserInfo userInfo=new UserInfo(" "," ");
+                            //databaseReference.child("issues").setValue(userInfo);
                             startActivity(intent);
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {

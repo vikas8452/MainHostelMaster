@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,10 +36,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.onesignal.OneSignal;
+//import com.onesignal.OneSignal;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -52,14 +55,14 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth firebaseAuth;
     boolean doubleBackToExitPressedOnce = false;
     private String userId;
-    private DatabaseReference userinfo;
+    private DatabaseReference myRef;
     private StorageReference mStorageRef;
     private ImageView imageView;
     private Uri tri;
     private ProgressDialog progressDialog;
     PhoneAuthCredential phoneAuthCredential;
 
-    @Override
+   /* @Override
     protected void onStart() {
         super.onStart();
 
@@ -71,32 +74,52 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this,MobileAndOTP.class));
             finish();
         }
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        OneSignal.startInit(this)
+       /* OneSignal.startInit(this)
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
                 .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
+                .init();*/
         setContentView(R.layout.activity_main);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait while data is loading");
 
+        FirebaseMessaging.getInstance().subscribeToTopic("News");
+        FirebaseMessaging.getInstance().subscribeToTopic("Movies");
 
-
-
-        userinfo = FirebaseDatabase.getInstance().getReference();
+        myRef = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
         firebaseAuth= FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
-        if(currentUser!=null)
-        OneSignal.sendTag("User_ID",currentUser.getPhoneNumber());
-       /* if(currentUser == null){
+        final String phone = currentUser.getPhoneNumber();
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (!snapshot.hasChild("7388796555")) {
+                    // run some code
+                    Toast.makeText(MainActivity.this,"You are not yet registered",Toast.LENGTH_SHORT).show();
+                }else{
+                    FirebaseMessaging.getInstance().subscribeToTopic("News");
+                    FirebaseMessaging.getInstance().subscribeToTopic("Movies");
+                    myRef.child("7388796555").child("token").setValue(FirebaseInstanceId.getInstance().getToken());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        //if(currentUser!=null)
+        //OneSignal.sendTag("User_ID",currentUser.getPhoneNumber());
+        /*if(currentUser == null){
             startActivity(new Intent(this,MobileAndOTP.class));
         }
         //updateUI(currentUser);
