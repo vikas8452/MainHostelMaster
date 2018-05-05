@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@drawable/border"
-    tools:context="com.hostelmanager.hostelmaster.rating_bar"
+    tools:context="com.hostelmanager.hostelmasterr.rating_bar"
     android:padding="5dp"
     android:popupBackground="@drawable/img" >
 

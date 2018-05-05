@@ -9,13 +9,13 @@
         android:layout_height="700dp"
         android:id="@+id/bbbbb"
         android:background="@drawable/phrse02"
-        tools:context="com.hostelmanager.hostelmaster.MyIssues">
+        tools:context="com.hostelmanager.hostelmasterr.MyIssues">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/aaaaa"
-            tools:context="com.hostelmanager.hostelmaster.MyIssues">
+            tools:context="com.hostelmanager.hostelmasterr.MyIssues">
 
             <ImageView
                 android:id="@+id/imageView3"

@@ -7,7 +7,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="1300dp"
-            tools:context="com.hostelmanager.hostelmaster.SignUp">
+            tools:context="com.hostelmanager.hostelmasterr.SignUp">
 
                 <TextView
                     android:id="@+id/textView4"

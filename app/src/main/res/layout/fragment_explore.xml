@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainfrag"
-    tools:context="com.hostelmanager.hostelmaster.Explore">
+    tools:context="com.hostelmanager.hostelmasterr.Explore">
 
     <!-- TODO: Update blank fragment layout -->
 

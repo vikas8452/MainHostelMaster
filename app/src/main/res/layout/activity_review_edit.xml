@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hostelmanager.hostelmaster.review_edit"
+    tools:context="com.hostelmanager.hostelmasterr.review_edit"
     android:background="@drawable/complete03">
 
     <LinearLayout

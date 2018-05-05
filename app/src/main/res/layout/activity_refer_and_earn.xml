@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hostelmanager.hostelmaster.refer_and_earn"
+    tools:context="com.hostelmanager.hostelmasterr.refer_and_earn"
     android:background="@drawable/complete03">
 
     <ImageView
