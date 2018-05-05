@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +18,23 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class SellBooks extends Fragment implements AdapterView.OnItemSelectedListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private Button btnLogin1;
+
     String item1;
     String item2;
+
+    private Button btnLogin1;
+TextInputEditText bookNameSell;
+TextInputEditText authorNameSell;
+
+
+
     public SellBooks() {
         // Required empty public constructor
     }
@@ -41,6 +52,10 @@ public class SellBooks extends Fragment implements AdapterView.OnItemSelectedLis
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view= inflater.inflate(R.layout.fragment_sell_books, container, false);
+       // ButterKnife.bind(this,view);
+
+        bookNameSell=view.findViewById(R.id.bookNameSell);
+        authorNameSell=view.findViewById(R.id.bookAuthorSell);
         btnLogin1 = view. findViewById(R.id.btnLogin1);
         // Spinner element
         Spinner spinner1 = view. findViewById(R.id.spinner3);
@@ -85,12 +100,35 @@ public class SellBooks extends Fragment implements AdapterView.OnItemSelectedLis
         btnLogin1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), finalBookDetails.class);
-                i.putExtra("get_department", item1);
-                i.putExtra("get_semester", item2);
-                startActivity(i);
+
+                if ((bookNameSell != null && bookNameSell.length() > 0) && (authorNameSell != null && authorNameSell.length() > 0)) {
+                    {      //THEN SEND TO THE NEXT ACTIVITY
+                        Intent i = new Intent(getActivity().getBaseContext(), finalBookDetails.class);
+                        i.putExtra("Department", item1);
+                        i.putExtra("Semester", item2);
+                        i.putExtra("bookNameSell",bookNameSell.getText().toString());
+                        i.putExtra("authorNameSell",authorNameSell.getText().toString());
+
+                        getActivity().startActivity(i);
+                    }
+
+                }
+                else if (!(bookNameSell != null && bookNameSell.length() > 0))
+                {
+                    Toast.makeText(getActivity(),"Book Name can't be empty ",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getActivity(),"Author Name can't be empty ",Toast.LENGTH_SHORT).show();
+                }
+
+
+                   // btnLogin1.setError("Please Enter The Book Name");
+                    //Toast.makeText(, "Name Must Not Be Empty", Toast.LENGTH_SHORT).show();
+
             }
         });
+
 
         return view;
     }
@@ -100,13 +138,13 @@ public class SellBooks extends Fragment implements AdapterView.OnItemSelectedLis
 
         switch(adapterView.getId())
         {
-            case R.id.spinner1:
+            case R.id.spinner3:
                 // On selecting a spinner item
                 item1 = adapterView.getItemAtPosition(i).toString();
                 // Showing selected spinner item
                 Toast.makeText(adapterView.getContext(), "Selected: " + item1, Toast.LENGTH_LONG).show();
                 break;
-            case R.id.spinner2:
+            case R.id.spinner4:
                 // On selecting a spinner item
                 item2 = adapterView.getItemAtPosition(i).toString();
                 // Showing selected spinner item
@@ -121,5 +159,7 @@ public class SellBooks extends Fragment implements AdapterView.OnItemSelectedLis
     }
 
     // TODO: Rename method, update argument and hook method into UI event
+
+
 
 }

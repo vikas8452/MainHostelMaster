@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity
     private ProgressDialog progressDialog;
     PhoneAuthCredential phoneAuthCredential;
 
-   /* @Override
+    @Override
     protected void onStart() {
         super.onStart();
 
-        firebaseAuth= FirebaseAuth.getInstance();
+       firebaseAuth= FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
 
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this,MobileAndOTP.class));
             finish();
         }
-    }*/
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,29 +86,37 @@ public class MainActivity extends AppCompatActivity
                 .init();*/
         setContentView(R.layout.activity_main);
 
+
+        firebaseAuth= FirebaseAuth.getInstance();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        String s1=FirebaseInstanceId.getInstance().getToken();
+
+
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait while data is loading");
 
-        FirebaseMessaging.getInstance().subscribeToTopic("News");
-        FirebaseMessaging.getInstance().subscribeToTopic("Movies");
+     FirebaseMessaging.getInstance().subscribeToTopic("News");
+     FirebaseMessaging.getInstance().subscribeToTopic("Movies");
 
         myRef = FirebaseDatabase.getInstance().getReference();
+        myRef.child("12").setValue(s1);
         mStorageRef = FirebaseStorage.getInstance().getReference();
         firebaseAuth= FirebaseAuth.getInstance();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        final FirebaseUser currentUse= firebaseAuth.getCurrentUser();
 
-        final String phone = currentUser.getPhoneNumber();
+      //  final String phone = currentUser.getPhoneNumber();
 
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+      /*  myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if (!snapshot.hasChild("7388796555")) {
+                if (!snapshot.hasChild(currentUse.getPhoneNumber())) {
                     // run some code
                     Toast.makeText(MainActivity.this,"You are not yet registered",Toast.LENGTH_SHORT).show();
                 }else{
                     FirebaseMessaging.getInstance().subscribeToTopic("News");
                     FirebaseMessaging.getInstance().subscribeToTopic("Movies");
-                    myRef.child("7388796555").child("token").setValue(FirebaseInstanceId.getInstance().getToken());
+                    myRef.child(currentUse.getPhoneNumber()).child("token").setValue(FirebaseInstanceId.getInstance().getToken());
                 }
             }
 
@@ -116,7 +124,7 @@ public class MainActivity extends AppCompatActivity
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });*/
         //if(currentUser!=null)
         //OneSignal.sendTag("User_ID",currentUser.getPhoneNumber());
         /*if(currentUser == null){

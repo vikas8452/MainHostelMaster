@@ -1,7 +1,7 @@
 package com.hostelmanager.hostelmaster;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.view.PointerIconCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
+import com.hostelmanager.hostelmaster.Model.BuySellSubject;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -19,8 +20,8 @@ public class CustomAdapterForBooksSellAndBuy extends BaseAdapter {
 
 Context c;
 ArrayList<BuySellSubject> buySellSubjects;
-
-  /*  public CustomAdapterForBooksSellAndBuy(Context c, ArrayList<BuySellSubject> buySellSubjects) {
+/*
+    public CustomAdapterForBooksSellAndBuy(Context c, ArrayList<BuySellSubject> buySellSubjects) {
         this.c = c;
         this.buySellSubjects = buySellSubjects;
     }
@@ -38,8 +39,8 @@ ArrayList<BuySellSubject> buySellSubjects;
         final BuySellSubject buySellSubject=(BuySellSubject) buySellSubjects.get(position);
         holder.bookNameInAdapter.setText(buySellSubject.getBookName());
         holder.authorNameInAdapter.setText(buySellSubject.getAuthorName());
-        holder.priceInAdapter.setText(buySellSubject.getBookPrice());
-        holder.bookdCondition.setText(buySellSubject.getBookCondition());
+     //   holder.priceInAdapter.setText(buySellSubject.getBookPrice());
+       // holder.bookdCondition.setText(buySellSubject.getBookCondition());
     }
 
     @Override
@@ -58,16 +59,18 @@ ArrayList<BuySellSubject> buySellSubjects;
             super(view);
              bookImage=view.findViewById(R.id.bookImage);
              bookNameInAdapter=view.findViewById(R.id.bookNameInAdapter);
-             authorNameInAdapter=view.findViewById(R.id.authorNameInAdapter);
-             priceInAdapter=view.findViewById(R.id.priceInAdapter);
-             bookdCondition=view.findViewById(R.id.conditionBook);
+            // authorNameInAdapter=view.findViewById(R.id.authorNameInAdapter);
+          //   priceInAdapter=view.findViewById(R.id.priceInAdapter);
+         //    bookdCondition=view.findViewById(R.id.conditionBook);
         }
-    }*/
+    }
 
+*/
     public CustomAdapterForBooksSellAndBuy(Context c, ArrayList<BuySellSubject> buySellSubjects) {
         this.c = c;
         this.buySellSubjects = buySellSubjects;
-
+        Log.d("dfddf", "CustomAdapterForBooksSellAndBuy:");
+      //  Toast.makeText(c,"vhbjkjnm,.",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -88,21 +91,23 @@ ArrayList<BuySellSubject> buySellSubjects;
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
     //Toast.makeText(c,"sds",Toast.LENGTH_SHORT).show();
-       if(view==null)
+        Log.d("dfdad","Enetred in getView")
+;       if(view==null)
            view=LayoutInflater.from(c).inflate(R.layout.book_description_model,viewGroup,false);
-
+        Toast.makeText(c, "Layout Inflatwrer", Toast.LENGTH_SHORT).show();
         ImageView bookImage=view.findViewById(R.id.bookImage);
         TextView bookNameInAdapter=view.findViewById(R.id.bookNameInAdapter);
         TextView authorNameInAdapter=view.findViewById(R.id.authorNameInAdapter);
-        TextView priceInAdapter=view.findViewById(R.id.priceInAdapter);
-        TextView bookCondition=view.findViewById(R.id.conditionBook);
+       // TextView priceInAdapter=view.findViewById(R.id.priceInAdapter);
+     //   TextView bookCondition=view.findViewById(R.id.conditionBook);
         final BuySellSubject buySellSubject= (BuySellSubject) this.getItem(i);
-
+//Toast.makeText(c,buySellSubject.getBookName(),Toast.LENGTH_SHORT).show();
         //bookImage.
+        Picasso.with(c).load("http://rta.org.af/eng/wp-content/uploads/2016/02/book.png").into(bookImage);
         bookNameInAdapter.setText(buySellSubject.getBookName());
         authorNameInAdapter.setText(buySellSubject.getAuthorName());
-        priceInAdapter.setText(buySellSubject.getBookPrice());
-        bookCondition.setText(buySellSubject.getBookCondition());
+       // priceInAdapter.setText(buySellSubject.getBookPrice());
+      //  bookCondition.setText(buySellSubject.getBookCondition());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override

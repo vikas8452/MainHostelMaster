@@ -1,20 +1,20 @@
-package com.hostelmanager.hostelmaster;
+package com.hostelmanager.hostelmaster.Model;
 
 public class BuySellSubject {
 
     private String bookName;
     private String authorName;
+    private String bookDescription;
     private String bookPrice;
-   // private String bookDescription;
     private String bookCondition;
 
     public BuySellSubject(){}
 
-    public BuySellSubject(String bookName, String authorName, String bookPrice, String bookCondition) {
+    public BuySellSubject(String bookName, String authorName, String bookDescription, String bookPrice, String bookCondition) {
         this.bookName = bookName;
         this.authorName = authorName;
+        this.bookDescription = bookDescription;
         this.bookPrice = bookPrice;
-     //   this.bookDescription = bookDescription;
         this.bookCondition = bookCondition;
     }
 
@@ -30,13 +30,23 @@ public class BuySellSubject {
         return authorName;
     }
 
-    public void setAuthorName(String authorName) { this.authorName = authorName; }
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getBookDescription() {
+        return bookDescription;
+    }
+
+    public void setBookDescription(String bookDescription) {
+        this.bookDescription = bookDescription;
+    }
 
     public String getBookPrice() {
         return bookPrice;
     }
 
-    public void setBookPrice(String bookPrice) {    
+    public void setBookPrice(String bookPrice) {
         this.bookPrice = bookPrice;
     }
 
@@ -48,4 +58,6 @@ public class BuySellSubject {
         this.bookCondition = bookCondition;
     }
 }
+
+
 

@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.support.v4.app.Fragment;
@@ -56,7 +57,9 @@ public class BuyAndSell extends AppCompatActivity {
        String msg= intent.getStringExtra("msg");
        if(msg.equals("openMyBook"))
        {
+           Log.d("vfsda","opening your fragment");
            loadFragment(new YourBooks());
+
 
        }else loadFragment(new BuyBooks());
 

@@ -95,6 +95,7 @@ android:id="@+id/rgCondition"
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:id="@+id/actualPrice"
+            android:inputType="number"
             android:layout_height="wrap_content"
             android:hint="Enter Book Set Price (₹)" />
     </android.support.design.widget.TextInputLayout>

@@ -40,7 +40,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         this.ratingCount = rating_Count;
         this.latitude=latitude;
         this.longitude=longitude;
-
+        Toast.makeText(context, "vikas kaise ho", Toast.LENGTH_SHORT).show();
     }
 
     class SearchViewHolder extends RecyclerView.ViewHolder {
@@ -59,7 +59,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             rating_Layout=itemView.findViewById(R.id.rating_Layout);
             rating_Description=itemView.findViewById(R.id.rating_Description);
              rating_Count=itemView.findViewById(R.id.rating_Count);
-
+        //    Toast.makeText(cc, "", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -1,5 +1,7 @@
 package com.hostelmanager.hostelmaster.helper;
 
+import android.util.Log;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -7,7 +9,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
-import com.hostelmanager.hostelmaster.BuySellSubject;
+import com.hostelmanager.hostelmaster.Model.BuySellSubject;
 
 import java.util.ArrayList;
 
@@ -27,6 +29,7 @@ public class FireBaseHelper {
 
     public Boolean saveMySellBook(BuySellSubject buySellSubject)
     {
+        Log.d("'sddsds","Entered in firebase helper");
         firebaseAuth= FirebaseAuth.getInstance();
         currentUser= firebaseAuth.getCurrentUser();
 
@@ -38,7 +41,7 @@ public class FireBaseHelper {
         {
             try
             {
-                db.child("BooksSellAndBuy").child(currentUser.getPhoneNumber()).child("MySellBooks").push().setValue(buySellSubject);
+                db.child(currentUser.getPhoneNumber()).push().setValue(buySellSubject);
                 saved=true;
 
             }
@@ -51,47 +54,5 @@ public class FireBaseHelper {
         return saved;
     }
 
-    private void fetchDataMySellBook(DataSnapshot dataSnapshot)
-    {
-        buySellSubjects.clear();
 
-        for(DataSnapshot ds:dataSnapshot.getChildren())
-        {
-            BuySellSubject buySellSubject=ds.getValue(BuySellSubject.class);
-            buySellSubjects.add(buySellSubject);
-        }
-    }
-
-    public ArrayList<BuySellSubject> getBuySellSubjects() {
-
-        currentUser=firebaseAuth.getCurrentUser();
-        db.child("BooksSellAndBuy").child(currentUser.getPhoneNumber()).child("MySellBooks").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    fetchDataMySellBook(dataSnapshot);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                    fetchDataMySellBook(dataSnapshot);
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        return buySellSubjects;
-    }
 }

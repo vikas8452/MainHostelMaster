@@ -65,7 +65,7 @@ public class BuyBooks extends Fragment implements AdapterView.OnItemSelectedList
         department.add("Biotechnology");
         department.add("Telecommunication");
 
-        List<String> semester = new ArrayList<String>();
+        final List<String> semester = new ArrayList<String>();
         semester.add("First");
         semester.add("Second");
         semester.add("Third");
@@ -91,6 +91,7 @@ public class BuyBooks extends Fragment implements AdapterView.OnItemSelectedList
 
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), MainActivity.class);
+               // Toast.makeText(getActivity(),"hdh"+item1,Toast.LENGTH_SHORT).show();
                 i.putExtra("get_department", item1);
                 i.putExtra("get_semester", item2);
                 startActivity(i);
@@ -108,7 +109,7 @@ public class BuyBooks extends Fragment implements AdapterView.OnItemSelectedList
                 // On selecting a spinner item
                 item1 = adapterView.getItemAtPosition(i).toString();
                 // Showing selected spinner item
-                Toast.makeText(adapterView.getContext(), "Selected: " + item1, Toast.LENGTH_LONG).show();
+                 Toast.makeText(adapterView.getContext(), "Selected: " + item1, Toast.LENGTH_LONG).show();
                 break;
             case R.id.spinner2:
                 // On selecting a spinner item
