@@ -152,7 +152,7 @@ public class MyIssues extends AppCompatActivity implements AdapterView.OnItemSel
             case SimpleGestureFilter.SWIPE_UP :    str = "Swipe Up";
                 if(tv2.getVisibility() == View.VISIBLE) {
                     //Toast.makeText(this, "ddddd", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MyIssues.this, Issues.class));
+                    startActivity(new Intent(MyIssues.this, IssuesList.class));
                     overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
                 }
                 break;

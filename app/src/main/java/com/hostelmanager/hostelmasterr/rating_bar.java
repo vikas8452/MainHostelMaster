@@ -22,7 +22,6 @@ public class rating_bar extends AppCompatActivity {
         setContentView(R.layout.activity_rating_bar);
         DisplayMetrics dm=new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-
         int width=dm.widthPixels;
         int height=dm.heightPixels;
 

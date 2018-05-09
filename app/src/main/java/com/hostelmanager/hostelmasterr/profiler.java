@@ -3,12 +3,16 @@ package com.hostelmanager.hostelmasterr;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,20 +27,19 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.hostelmanager.hostelmasterr.Model.ConfStatus;
+import com.hostelmanager.hostelmasterr.Model.HostelerInfo;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class profiler extends Fragment {
-    private TextView tv1,tv2;
-    private TextView tv3,tv4;
-    private ImageView imageView , editpen;
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference myRef;
-    private StorageReference mStorageRef;
-    private Button update;
-    int flag = 0;
+
+    private String name,hostel,roomno,college,year;
+    private TextView tv1,tv2,tv3,tv4,tv5,tv6,chhos;
+    private  DatabaseReference databaseReference,databaseReferenc;
+    private LinearLayout ll,ll2,ll3;
 
 
     public profiler() {
@@ -48,48 +51,97 @@ public class profiler extends Fragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_profiler, container, false);
-        tv1  = view.findViewById(R.id.profileUserName);
-        tv2 = view.findViewById(R.id.profileUserMobile);
-        update = view.findViewById(R.id.profilerUpdate);
-        editpen = view.findViewById(R.id.profilerEditpen);
+        View view = inflater.inflate(R.layout.fragment_profiler, container, false);
 
-        tv1.setFocusable(false);
-        tv1.setFocusableInTouchMode(false);
-        tv1.setCursorVisible(false);
-        tv2.setFocusable(false);
-        tv2.setFocusableInTouchMode(false);
-        tv2.setCursorVisible(false);
-        update.setVisibility(View.GONE);
+        tv1 = view.findViewById(R.id.sdname);
+        tv2 = view.findViewById(R.id.sdmobile);
+        tv3 = view.findViewById(R.id.sdcollege);
+        tv4 = view.findViewById(R.id.sdhostel);
+        tv5 = view.findViewById(R.id.sdroom);
+        tv6 = view.findViewById(R.id.sdyear);
+        chhos = view.findViewById(R.id.changehos);
+        ll = view.findViewById(R.id.statusshow);
+        ll2 = view.findViewById(R.id.chhos);
+        ll3 = view.findViewById(R.id.statusshowe);
 
+        final RelativeLayout rl = view.findViewById(R.id.loading);
+        rl.setVisibility(View.VISIBLE);
 
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser fb = firebaseAuth.getCurrentUser();
+        final String mobile = fb.getPhoneNumber();
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        final FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-        if(firebaseUser==null){
-            startActivity(new Intent(getActivity(),SignInerActivity.class));
-            return null;
-        }
-        String phone = firebaseUser.getPhoneNumber();
+        databaseReferenc = FirebaseDatabase.getInstance().getReference().child("Students");
 
-
-        final String userId = firebaseUser.getUid();
-        mStorageRef = FirebaseStorage.getInstance().getReference();
-        myRef = FirebaseDatabase.getInstance().getReference();
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReferenc.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if (!snapshot.hasChild("7388796555")) {
+                if (!snapshot.hasChild(mobile)) {
                     // run some code
-                    flag = 1;
+                    Log.d("iii","iooo");
                     Toast.makeText(getContext(),"You are not yet registered",Toast.LENGTH_SHORT).show();
-                    return ;
-                }else{
-                    flag=0;
-                    FirebaseMessaging.getInstance().subscribeToTopic("News");
-                    FirebaseMessaging.getInstance().subscribeToTopic("Movies");
-                    myRef.child("7388796555").child("token").setValue(FirebaseInstanceId.getInstance().getToken());
+                    Explore explore=new Explore();
+                    android.support.v4.app.FragmentManager manager=getFragmentManager();
+                    manager.beginTransaction().replace(R.id.relativefrag,explore).commit();
+                    startActivity(new Intent(getContext(),HostelSignUp.class));
+                }
+                else{
+
+                    Log.d("iii","iiiiiiii");
+                    databaseReference = FirebaseDatabase.getInstance().getReference()
+                            .child("Students").child(mobile);
+
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            HostelerInfo hostelerInfo = dataSnapshot.getValue(HostelerInfo.class);
+                            name = hostelerInfo.getName();
+                            hostel = hostelerInfo.getHostel();
+                            roomno = hostelerInfo.getRoomno();
+                            college = hostelerInfo.getCollege();
+                            year = hostelerInfo.getYear();
+
+                            tv1.setText(name);
+                            tv2.setText(mobile);
+                            tv3.setText(college);
+                            tv4.setText(hostel);
+                            tv5.setText(roomno);
+                            tv6.setText(year);
+                            DatabaseReference ddb = FirebaseDatabase.getInstance().getReference().child("Hostels").child(hostel)
+                                    .child(roomno);
+                            ddb.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot dds:dataSnapshot.getChildren()){
+                                        ConfStatus confStatus = dds.getValue(ConfStatus.class);
+                                        if(confStatus.getMobile().equals(mobile)){
+                                            if(confStatus.getStat().equals("1")){
+                                                ll.setVisibility(View.VISIBLE);
+                                            }
+                                            if(confStatus.getStat().equals("3")){
+                                                ll2.setVisibility(View.VISIBLE);
+                                                ll3.setVisibility(View.VISIBLE);
+                                            }
+
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+                            rl.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
                 }
             }
 
@@ -98,91 +150,14 @@ public class profiler extends Fragment {
 
             }
         });
-        if(flag==1)
-            return null;
-        else
-        myRef.addValueEventListener(new ValueEventListener() {
+        chhos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot ds) {
-
-
-                UserInfo userInfo = new UserInfo();
-                userInfo.setFname(ds.child(userId).getValue(UserInfo.class).getFname());
-                userInfo.setMob(ds.child(userId).getValue(UserInfo.class).getMob());
-
-                tv1.setText(userInfo.getFname());
-                tv2.setText(userInfo.getMob());
-
-                /*imageView = view.findViewById(R.id.profilepic);
-
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                StorageReference storageReference2= mStorageRef.child("profile").child(user.getUid());
-                try{
-                storageReference2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Picasso.with(getContext()).load(uri).into(imageView);
-                    }
-                });}
-                catch(Exception e){
-                    Toast.makeText(getActivity(),""+e,Toast.LENGTH_SHORT).show();
-                }*/
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),HostelSignUp.class));
             }
         });
 
-        /*tv3=view.findViewById(R.id.profileEmailid);
-        tv3.setText(firebaseUser.getEmail());
 
-        tv4=view.findViewById(R.id.profileLogouttv);
-        tv4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(getActivity() , SignInerActivity.class));
-                firebaseAuth.signOut();
-            }
-        });
-
-        editpen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tv2.setFocusable(true);
-                tv1.setFocusableInTouchMode(true);
-                tv1.setCursorVisible(true);
-                tv1.setFocusable(true);
-                tv2.setFocusableInTouchMode(true);
-                tv2.setCursorVisible(true);
-                update.setVisibility(View.VISIBLE);
-            }
-        });
-
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final ProgressDialog progressDialo= new ProgressDialog(getContext());
-                progressDialo.setTitle("Please Wait...");
-                progressDialo.show();
-                progressDialo.setCancelable(false);
-                String fname = tv1.getText().toString().trim();
-                String mob = tv2.getText().toString().trim();
-
-                DatabaseReference stf1 = myRef.child(userId).child("fname");
-                stf1.setValue(fname);
-
-                DatabaseReference stf2 = myRef.child(userId).child("mob");
-                stf2.setValue(mob);
-
-                progressDialo.dismiss();
-
-            }
-        });*/
         return view;
     }
-
 }

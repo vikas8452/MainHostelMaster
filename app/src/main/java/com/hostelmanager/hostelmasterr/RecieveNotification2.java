@@ -35,7 +35,7 @@ FirebaseUser currrentUser=firebaseAuth.getCurrentUser();
 
     private void sendRegistrationToServer(String refreshedToken) {
 
-       DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+       DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Students");
         mDatabase.child(currrentUser.getPhoneNumber()).child("token").setValue(refreshedToken);
 
     }

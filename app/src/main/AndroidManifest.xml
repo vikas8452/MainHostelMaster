@@ -50,6 +50,8 @@
         <activity android:name="com.hostelmanager.hostelmasterr.refer_and_earn" />
         <activity android:name="com.hostelmanager.hostelmasterr.SetMobile" />
         <activity android:name="com.hostelmanager.hostelmasterr.MobileAndOTP" />
+        <activity android:name="com.hostelmanager.hostelmasterr.IssuesList" />
+        <activity android:name="com.hostelmanager.hostelmasterr.HostelSignUp" />
         <activity
             android:name="com.hostelmanager.hostelmasterr.Issues"
             android:theme="@style/AppTheme.CustomTheme" />

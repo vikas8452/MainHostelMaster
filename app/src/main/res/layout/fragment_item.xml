@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    style="@style/AppTheme.CustomTheme">
+
+    <GridView
+        android:id="@+id/gridissue"
+        android:layout_width="fill_parent"
+        android:numColumns="1"
+        android:layout_height="match_parent"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:layout_gravity="right|top" />
+
+</LinearLayout>

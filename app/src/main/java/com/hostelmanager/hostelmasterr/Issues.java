@@ -44,15 +44,13 @@ public class Issues extends AppCompatActivity {
         tv1 = findViewById(R.id.issues);
         final String userId = firebaseUser.getUid();
 
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+        /*mStorageRef = FirebaseStorage.getInstance().getReference();
         myRef = FirebaseDatabase.getInstance().getReference().child(userId).child("issues");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot ds) {
                 UserInfo userInfo = new UserInfo();
-                userInfo.setIssuetype(ds.getValue(UserInfo.class).getIssuetype());
-                userInfo.setDesc(ds.getValue(UserInfo.class).getDesc());
                 tv1 = findViewById(R.id.issues);
                 tv1.setText(" ");
                 String s1 = userInfo.getIssuetype();
@@ -70,7 +68,7 @@ public class Issues extends AppCompatActivity {
 
             }
 
-        });
+        });*/
     }
 
     public void finish() {

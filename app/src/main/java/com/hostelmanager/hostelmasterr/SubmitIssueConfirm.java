@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hostelmanager.hostelmasterr.Model.SendRecieveIssues;
@@ -41,7 +42,6 @@ public class SubmitIssueConfirm extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_issue_submition,null);
         firebaseAuth = FirebaseAuth.getInstance();
-        //FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Issues").child("RP").child("105");
 
         TextView tv1 = view.findViewById(R.id.dialogIssueSubmitionType);
@@ -85,12 +85,17 @@ public class SubmitIssueConfirm extends AppCompatDialogFragment {
 
                       //  UserInfo userInfo=new UserInfo(s1,s2);
                         //databaseReference.child("issues").setValue(userInfo);
+                        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                         SendRecieveIssues sendRecieveIssues = new SendRecieveIssues();
                         sendRecieveIssues.setType(s1);
                         sendRecieveIssues.setDescription(s2);
-                        sendRecieveIssues.setMobile("+917388796555");
+                        sendRecieveIssues.setMobile(firebaseUser.getPhoneNumber());
                         sendRecieveIssues.setStatus("0");
-                        databaseReference.push().setValue(sendRecieveIssues);
+                        sendRecieveIssues.setRoomno("105");
+                        String key = databaseReference.push().getKey();
+                        sendRecieveIssues.setUid(key);
+
+                        databaseReference.child(key).setValue(sendRecieveIssues);
                     }
                 });
         return builder.create();

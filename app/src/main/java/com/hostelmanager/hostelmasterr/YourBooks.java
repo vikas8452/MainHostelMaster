@@ -24,19 +24,19 @@ import java.util.ArrayList;
 public class YourBooks extends Fragment {
 
     DatabaseReference db;
-   // RecyclerView grid;
+    //RecyclerView grid;
     FirebaseAuth firebaseAuth;
     FirebaseUser currentUser;
     CustomAdapterForBooksSellAndBuy adapter;
-//   CustomAdapterForSB adapter;
+    //CustomAdapterForSB adapter;
     GridView gridViewForBooks;
     ArrayList<BuySellSubject> buySellSubjects=new ArrayList<BuySellSubject>();
     FireBaseHelper helper;
+
+
     public YourBooks() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,13 +52,13 @@ public class YourBooks extends Fragment {
       //  grid=view.findViewById(R.id.grid);
         firebaseAuth=FirebaseAuth.getInstance();
         currentUser=firebaseAuth.getCurrentUser();
-      gridViewForBooks=view.findViewById(R.id.grid);
+        gridViewForBooks=view.findViewById(R.id.grid);
         db= FirebaseDatabase.getInstance().getReference("BuyAndSell").child("MyBooksForSell");
         db.keepSynced(true);
      //   helper=new FireBaseHelper(db);
 
         adapter=new CustomAdapterForBooksSellAndBuy(getActivity().getBaseContext(),retrieve(db));
-            gridViewForBooks.setAdapter(adapter);
+        gridViewForBooks.setAdapter(adapter);
 
         return view;
     }
@@ -86,7 +86,7 @@ public class YourBooks extends Fragment {
     //READ BY HOOKING ONTO DATABASE OPERATION CALLBACKS
     public ArrayList<BuySellSubject> retrieve(DatabaseReference db)
     {
-          Log.d("sdsd","Entered in the listener");
+        Log.d("sdsd","Entered in the listener");
         db.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -97,7 +97,7 @@ public class YourBooks extends Fragment {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            fetchData(dataSnapshot);
+              fetchData(dataSnapshot);
             }
 
             @Override
@@ -114,9 +114,7 @@ public class YourBooks extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        })
-;
-
+        });
 
         return  buySellSubjects;
     }

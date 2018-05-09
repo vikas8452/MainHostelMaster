@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity
                 .init();*/
         setContentView(R.layout.activity_main);
 
-
         firebaseAuth= FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         String s1=FirebaseInstanceId.getInstance().getToken();
@@ -296,14 +295,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.explore) {
-          /*  Explore explore=new Explore();
+          /*Explore explore=new Explore();
             android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativefrag,explore).commit();
 */
           Intent intent =new Intent (this,SearchActivity.class);
           startActivity(intent);
         } else if (id == R.id.myhostel) {
-            //startActivity(new Intent(this,hostel.class));
+            //startActivity(new Intent(this,HostelSignUp.class));
             MyHostell myHostell=new MyHostell();
             android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativefrag,myHostell).commit();
@@ -312,6 +311,7 @@ public class MainActivity extends AppCompatActivity
             profiler prof=new profiler();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativefrag , prof).commit();
+
         } else if (id == R.id.mywallet) {
             MyWallet myWallet=new MyWallet();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
@@ -326,6 +326,7 @@ public class MainActivity extends AppCompatActivity
             ReferandEarn referandEarn=new ReferandEarn();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativefrag , referandEarn).commit();
+
         } else if (id == R.id.feedback) {
             startActivity(new Intent(this,feedback.class));
 

@@ -11,15 +11,10 @@
         android:layout_width="fill_parent"
         android:numColumns="1"
         android:layout_height="match_parent"
-
         android:verticalSpacing="10dp"
         android:horizontalSpacing="10dp"
         android:stretchMode="columnWidth"
-        android:layout_gravity="right|top"
-
-
-
-       />
+        android:layout_gravity="right|top" />
 
   <!--  <android.support.design.widget.TextInputEditText
         android:layout_width="wrap_content"

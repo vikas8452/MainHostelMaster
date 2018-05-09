@@ -90,8 +90,8 @@ ArrayList<BuySellSubject> buySellSubjects;
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
     //Toast.makeText(c,"sds",Toast.LENGTH_SHORT).show();
-        Log.d("dfdad","Enetred in getView")
-;       if(view==null)
+        Log.d("dfdad","Enetred in getView");
+        if(view==null)
            view=LayoutInflater.from(c).inflate(R.layout.book_description_model,viewGroup,false);
         Toast.makeText(c, "Layout Inflatwrer", Toast.LENGTH_SHORT).show();
         ImageView bookImage=view.findViewById(R.id.bookImage);

@@ -7,10 +7,10 @@
     <color name="grey">#7c7d7f</color>
     <color name="white">#ffffff</color>
     <color name="orange">#f29407</color>
-    <color name="bckgrnd">#9599a0</color>
+    <color name="bckgrnd">#ecff5e</color>
     <color name="bg_login">#26ae90</color>
-    <color name="bg_register">#2e3237</color>
-    <color name="bg_main">#428bca</color>
+    <color name="bg_register">#4bbff7</color>
+    <color name="bg_main">#f5151d</color>
         <color name="input_login">#222222</color>
     <color name="input_login_hint">#999999</color>
     <color name="input_register">#888888</color>
@@ -20,5 +20,5 @@
     <color name="btn_login_bg">#eceef1</color>
     <color name="lbl_name">#333333</color>
     <color name="btn_logut_bg">#ff6861</color>
-    <color name="bgBottomNavigation">#fe485a</color>
+    <color name="bgBottomNavigation">#fa727f</color>
 </resources>

@@ -78,7 +78,7 @@ public class MyHostell extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
+                String value = (String)dataSnapshot.getValue(String.class);
                 my_hostel_name.setText(value);
 
             }
