@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.hostelmanager.hostelmasterr.Model.ConfStatus;
 import com.hostelmanager.hostelmasterr.Model.GetHostelByUID;
 import com.hostelmanager.hostelmasterr.Model.HostelerInfo;
@@ -183,6 +184,9 @@ public class HostelSignUp extends AppCompatActivity implements AdapterView.OnIte
         confStatus.setName(str1);
         confStatus.setStat("1");
         databaseReference.child(str2).setValue(confStatus);
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Students");
+        mDatabase.child(str2).child("token").setValue(refreshedToken);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
         alertbox.setMessage("Thank you for choosing "+str3.toUpperCase());
         alertbox.setTitle("Thank you");

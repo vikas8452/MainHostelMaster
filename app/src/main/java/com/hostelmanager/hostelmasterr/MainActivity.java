@@ -92,9 +92,7 @@ public class MainActivity extends AppCompatActivity
         firebaseAuth= FirebaseAuth.getInstance();
         final FirebaseUser currentUse= firebaseAuth.getCurrentUser();
 
-        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Students");
-        mDatabase.child(currentUse.getPhoneNumber()).child("token").setValue(refreshedToken);
+
 
       //  final String phone = currentUser.getPhoneNumber();
 
