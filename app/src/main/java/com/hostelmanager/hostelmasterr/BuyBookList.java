@@ -72,7 +72,7 @@ public class BuyBookList extends AppCompatActivity {
             Log.d("ds","Hell");
             try {
                 BuySellSubject spacecraft = ds.getValue(BuySellSubject.class);
-
+                
                 buySellSubjects.add(spacecraft);
                 // Toast.makeText(getActivity(), buySellSubjects.get(0).getBookName() + "", Toast.LENGTH_SHORT).show();
             }
