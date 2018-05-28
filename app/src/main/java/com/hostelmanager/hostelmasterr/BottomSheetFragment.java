@@ -226,7 +226,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     {
         firebaseAuth= FirebaseAuth.getInstance();
         currentUser= firebaseAuth.getCurrentUser();
-        myRef=FirebaseDatabase.getInstance().getReference("BuyAndSell").child("MyBooksForSell");
+        myRef=FirebaseDatabase.getInstance().getReference("BuyAndSell").child("MyBooksForSell").child(currentUser.getPhoneNumber());
         if(b==null)
         {
             saved=false;
@@ -235,7 +235,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         {
             try
             {
-                myRef.child(currentUser.getPhoneNumber()).push().setValue(b);
+                myRef.child("MY BOOKS").push().setValue(b);
                 saved=true;
 
             }

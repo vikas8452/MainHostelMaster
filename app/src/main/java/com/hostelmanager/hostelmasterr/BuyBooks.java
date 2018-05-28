@@ -88,7 +88,7 @@ public class BuyBooks extends Fragment implements AdapterView.OnItemSelectedList
         btnLogin1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), MainActivity.class);
+                Intent i = new Intent(getActivity(), BuyBookList.class);
                // Toast.makeText(getActivity(),"hdh"+item1,Toast.LENGTH_SHORT).show();
                 i.putExtra("get_department", item1);
                 i.putExtra("get_semester", item2);

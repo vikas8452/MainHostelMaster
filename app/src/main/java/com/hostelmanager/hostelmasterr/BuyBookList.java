@@ -1,12 +1,11 @@
 package com.hostelmanager.hostelmasterr;
 
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,8 +19,8 @@ import com.hostelmanager.hostelmasterr.helper.FireBaseHelper;
 
 import java.util.ArrayList;
 
+public class BuyBookList extends AppCompatActivity {
 
-public class YourBooks extends Fragment {
 
     DatabaseReference db;
     //RecyclerView grid;
@@ -33,33 +32,34 @@ public class YourBooks extends Fragment {
     ArrayList<BuySellSubject> buySellSubjects=new ArrayList<BuySellSubject>();
     FireBaseHelper helper;
 
-
-    public YourBooks() {
-        // Required empty public constructor
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        final View view= inflater.inflate(R.layout.fragment_your_books, container, false);
-      //  grid=view.findViewById(R.id.grid);
+        setContentView(R.layout.activity_buy_book_list);
         firebaseAuth=FirebaseAuth.getInstance();
         currentUser=firebaseAuth.getCurrentUser();
-        gridViewForBooks=view.findViewById(R.id.grid);
-        db= FirebaseDatabase.getInstance().getReference("BuyAndSell").child("MyBooksForSell");
-        db.keepSynced(true);
-     //   helper=new FireBaseHelper(db);
+        gridViewForBooks=findViewById(R.id.gridBuyBook);
 
-        adapter=new CustomAdapterForBooksSellAndBuy(getActivity().getBaseContext(),retrieve(db));
+        Intent getData=getIntent();
+        String department=getData.getStringExtra("get_department");
+        String semester=getData.getStringExtra("get_semester");
+        if(semester!=""&&semester!=null&&department!=null&& department!="")
+        {
+            db= FirebaseDatabase.getInstance().getReference("BuyAndSell").child("BooksForSell").child(department).child(semester);
+        }
+        else
+        {
+            Toast.makeText(this,"Please Try Again Later !",Toast.LENGTH_SHORT).show();
+        }
+
+
+        db.keepSynced(true);
+        //   helper=new FireBaseHelper(db);
+
+        adapter=new CustomAdapterForBooksSellAndBuy(this,retrieve(db));
         gridViewForBooks.setAdapter(adapter);
 
-        return view;
+
     }
 
 
@@ -72,8 +72,9 @@ public class YourBooks extends Fragment {
             Log.d("ds","Hell");
             try {
                 BuySellSubject spacecraft = ds.getValue(BuySellSubject.class);
+
                 buySellSubjects.add(spacecraft);
-               // Toast.makeText(getActivity(), buySellSubjects.get(0).getBookName() + "", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getActivity(), buySellSubjects.get(0).getBookName() + "", Toast.LENGTH_SHORT).show();
             }
             catch(Exception e)
             {
@@ -96,7 +97,7 @@ public class YourBooks extends Fragment {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-              fetchData(dataSnapshot);
+                fetchData(dataSnapshot);
             }
 
             @Override

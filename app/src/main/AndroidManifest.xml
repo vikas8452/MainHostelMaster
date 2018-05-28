@@ -17,45 +17,45 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.hostelmanager.hostelmasterr.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.hostelmanager.hostelmasterr.SearchActivity" />
-        <activity android:name="com.hostelmanager.hostelmasterr.GalleryActivity" />
-        <activity android:name="com.hostelmanager.hostelmasterr.SignUp">
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".GalleryActivity" />
+        <activity android:name=".SignUp">
             <intent-filter>
                 <action android:name="com.hostelmanager.hostelmaster.SignUp" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hostelmanager.hostelmasterr.SignInerActivity" />
-        <activity android:name="com.hostelmanager.hostelmasterr.AppSignUp" />
-        <activity android:name="com.hostelmanager.hostelmasterr.MyIssues" />
-        <activity android:name="com.hostelmanager.hostelmasterr.SliderFromIssues" />
-        <activity android:name="com.hostelmanager.hostelmasterr.propertysignup" />
-        <activity android:name="com.hostelmanager.hostelmasterr.Successful_sign_up" />
-        <activity android:name="com.hostelmanager.hostelmasterr.review_edit" />
-        <activity android:name="com.hostelmanager.hostelmasterr.workwithus" />
+        <activity android:name=".SignInerActivity" />
+        <activity android:name=".AppSignUp" />
+        <activity android:name=".MyIssues" />
+        <activity android:name=".SliderFromIssues" />
+        <activity android:name=".propertysignup" />
+        <activity android:name=".Successful_sign_up" />
+        <activity android:name=".review_edit" />
+        <activity android:name=".workwithus" />
         <activity
-            android:name="com.hostelmanager.hostelmasterr.mess_schedulepopup"
+            android:name=".mess_schedulepopup"
             android:theme="@style/AppTheme.CustomTheme" />
         <activity
-            android:name="com.hostelmanager.hostelmasterr.getToken"
+            android:name=".getToken"
             android:theme="@style/AppTheme.CustomTheme" />
         <activity
-            android:name="com.hostelmanager.hostelmasterr.rating_bar"
+            android:name=".rating_bar"
             android:theme="@style/AppTheme.CustomTheme" />
-        <activity android:name="com.hostelmanager.hostelmasterr.feedback" />
-        <activity android:name="com.hostelmanager.hostelmasterr.refer_and_earn" />
-        <activity android:name="com.hostelmanager.hostelmasterr.SetMobile" />
-        <activity android:name="com.hostelmanager.hostelmasterr.MobileAndOTP" />
-        <activity android:name="com.hostelmanager.hostelmasterr.IssuesList" />
-        <activity android:name="com.hostelmanager.hostelmasterr.HostelSignUp" />
+        <activity android:name=".feedback" />
+        <activity android:name=".refer_and_earn" />
+        <activity android:name=".SetMobile" />
+        <activity android:name=".MobileAndOTP" />
+        <activity android:name=".IssuesList" />
+        <activity android:name=".HostelSignUp" />
         <activity
-            android:name="com.hostelmanager.hostelmasterr.Issues"
+            android:name=".Issues"
             android:theme="@style/AppTheme.CustomTheme" />
-        <activity android:name="com.hostelmanager.hostelmasterr.Notifications" />
+        <activity android:name=".Notifications" />
 
         <!--
      Set custom default icon. This is used when no icon is set for incoming notification messages.
@@ -75,12 +75,12 @@
             android:name="firebase_messaging_auto_init_enabled"
             android:value="true" />
 
-        <activity android:name="com.hostelmanager.hostelmasterr.NavigatorActivityBuyAndSell" />
+        <activity android:name=".NavigatorActivityBuyAndSell" />
         <activity
-            android:name="com.hostelmanager.hostelmasterr.BuyAndSell"
+            android:name=".BuyAndSell"
             android:label="@string/title_activity_buy_and_sell" />
         <activity
-            android:name="com.hostelmanager.hostelmasterr.SplashScreen"
+            android:name=".SplashScreen"
             android:theme="@style/AppTheme.NoActionBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -88,29 +88,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hostelmanager.hostelmasterr.finalBookDetails" />
-
-        <meta-data android:name="firebase_messaging_auto_init_enabled"
-            android:value="true" />
-        <meta-data android:name="firebase_analytics_collection_enabled"
-            android:value="true" />
+        <activity android:name=".finalBookDetails" />
 
         <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="true" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="true" />
+        <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/default_notification_channel_id"/>
+            android:value="@string/default_notification_channel_id" />
 
-        <service android:name="com.hostelmanager.hostelmasterr.RecieveNotification2">
+        <service android:name=".RecieveNotification2">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="com.hostelmanager.hostelmasterr.RecieveNotification">
+        <service android:name=".RecieveNotification">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name="com.hostelmanager.hostelmasterr.showBookForBuy"></activity>
+        <activity android:name=".showBookForBuy" />
+        <activity android:name=".BuyBookList"></activity>
     </application>
 
 </manifest>
