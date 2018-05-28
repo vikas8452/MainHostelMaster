@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity
                 .init();*/
         setContentView(R.layout.activity_main);
 
+
+
         firebaseAuth= FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         String s1=FirebaseInstanceId.getInstance().getToken();
@@ -89,6 +91,8 @@ public class MainActivity extends AppCompatActivity
         mStorageRef = FirebaseStorage.getInstance().getReference();
         firebaseAuth= FirebaseAuth.getInstance();
         final FirebaseUser currentUse= firebaseAuth.getCurrentUser();
+
+
 
       //  final String phone = currentUser.getPhoneNumber();
 

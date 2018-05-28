@@ -100,6 +100,7 @@ public class profiler extends Fragment {
                             roomno = hostelerInfo.getRoomno();
                             college = hostelerInfo.getCollege();
                             year = hostelerInfo.getYear();
+                            String uid = hostelerInfo.getLuid();
 
                             tv1.setText(name);
                             tv2.setText(mobile);
@@ -107,7 +108,7 @@ public class profiler extends Fragment {
                             tv4.setText(hostel);
                             tv5.setText(roomno);
                             tv6.setText(year);
-                            DatabaseReference ddb = FirebaseDatabase.getInstance().getReference().child("Hostels").child(hostel)
+                            DatabaseReference ddb = FirebaseDatabase.getInstance().getReference().child("Hostels").child(uid)
                                     .child(roomno);
                             ddb.addValueEventListener(new ValueEventListener() {
                                 @Override

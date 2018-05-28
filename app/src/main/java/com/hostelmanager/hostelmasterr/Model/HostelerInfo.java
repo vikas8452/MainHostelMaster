@@ -6,7 +6,15 @@ package com.hostelmanager.hostelmasterr.Model;
 
 public class HostelerInfo {
 
-    String name,hostel,roomno,college,mobile,year;
+    String name,hostel,roomno,college,mobile,year,luid;
+
+    public String getLuid() {
+        return luid;
+    }
+
+    public void setLuid(String luid) {
+        this.luid = luid;
+    }
 
     public HostelerInfo() {
     }
@@ -19,14 +27,14 @@ public class HostelerInfo {
         this.year = year;
     }
 
-    public HostelerInfo(String name, String hostel, String roomno, String college, String mobile, String year) {
+    public HostelerInfo(String name, String hostel, String roomno, String college, String mobile, String year,String luid) {
         this.name = name;
         this.hostel = hostel;
         this.roomno = roomno;
         this.college = college;
         this.mobile = mobile;
         this.year = year;
-
+        this.luid = luid;
     }
 
     public String getName() {

@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MobileAndOTP extends AppCompatActivity {
 
-    private TextView tv1,tv2,nochange,tv4,tv6;
+    private TextView tv1,tv2,nochange,tv4,tv5,tv6;
     private Button button1,button2;
     private boolean mVerificationInProgress = false;
     private String mVerificationId;
@@ -47,10 +47,12 @@ public class MobileAndOTP extends AppCompatActivity {
         button2 = findViewById(R.id.verify);
         nochange = findViewById(R.id.nochange);
         tv4 = findViewById(R.id.noshowe);
+        tv5 = findViewById(R.id.noshow);
         tv6 = findViewById(R.id.noshower);
 
         tv2.setVisibility(View.GONE);
         tv4.setVisibility(View.GONE);
+        tv5.setVisibility(View.GONE);
         tv6.setVisibility(View.GONE);
         nochange.setVisibility(View.GONE);
         button2.setVisibility(View.GONE);
@@ -92,6 +94,7 @@ public class MobileAndOTP extends AppCompatActivity {
                 button1.setVisibility(View.GONE);
                 tv2.setVisibility(View.VISIBLE);
                 tv4.setVisibility(View.VISIBLE);
+                tv5.setVisibility(View.VISIBLE);
                 tv6.setVisibility(View.VISIBLE);
                 nochange.setVisibility(View.VISIBLE);
                 button2.setVisibility(View.VISIBLE);
@@ -100,6 +103,7 @@ public class MobileAndOTP extends AppCompatActivity {
                     public void onClick(View v) {
                         tv2.setVisibility(View.GONE);
                         tv4.setVisibility(View.GONE);
+                        tv5.setVisibility(View.GONE);
                         tv6.setVisibility(View.GONE);
                         nochange.setVisibility(View.GONE);
                         button2.setVisibility(View.GONE);
