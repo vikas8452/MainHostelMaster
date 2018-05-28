@@ -4,16 +4,23 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.hostelmanager.hostelmasterr.Model.HostelerInfo;
 import com.hostelmanager.hostelmasterr.Model.SendRecieveIssues;
 
 /**
@@ -25,8 +32,8 @@ public class SubmitIssueConfirm extends AppCompatDialogFragment {
     private TextView type;
     private TextView desc;
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseReference,myRef;
-    String s1,s2;
+    private DatabaseReference databaseReference,databaseReferenc,myRef;
+    String s1,s2,luid,room;
 
     public SubmitIssueConfirm(){}
     @SuppressLint("ValidFragment")
@@ -41,8 +48,26 @@ public class SubmitIssueConfirm extends AppCompatDialogFragment {
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_issue_submition,null);
-        firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Issues").child("RP").child("105");
+
+        firebaseAuth= FirebaseAuth.getInstance();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
+        databaseReferenc = FirebaseDatabase.getInstance().getReference().child("Students").child(currentUser.getPhoneNumber());
+
+        databaseReferenc.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                HostelerInfo hostelerInfo = dataSnapshot.getValue(HostelerInfo.class);
+                luid = hostelerInfo.getLuid();
+                room = hostelerInfo.getRoomno();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Issues").child(luid).child(room);
 
         TextView tv1 = view.findViewById(R.id.dialogIssueSubmitionType);
         tv1.setText(s1);

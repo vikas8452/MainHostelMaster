@@ -17,6 +17,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.hostelmanager.hostelmasterr.Model.HostelerInfo;
 import com.hostelmanager.hostelmasterr.Model.SendRecieveIssues;
 
 import java.util.ArrayList;
@@ -28,14 +30,34 @@ public class IssuesList extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser currentUser;
     private GridView gridView;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,databaseReferenc;
     private ArrayList<SendRecieveIssues> sendRecieveIssues=new ArrayList<SendRecieveIssues>();
+    private String luid,room;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_item);
+
+        firebaseAuth= FirebaseAuth.getInstance();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
+        databaseReferenc = FirebaseDatabase.getInstance().getReference().child("Students").child(currentUser.getPhoneNumber());
+
+        databaseReferenc.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                HostelerInfo hostelerInfo = dataSnapshot.getValue(HostelerInfo.class);
+                luid = hostelerInfo.getLuid();
+                room = hostelerInfo.getRoomno();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         DisplayMetrics dm=new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -50,7 +72,7 @@ public class IssuesList extends AppCompatActivity {
         currentUser=firebaseAuth.getCurrentUser();
         gridView = findViewById(R.id.gridissue);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Issues").child("RP").child("105");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Issues").child(luid).child(room);
         databaseReference.keepSynced(true);
         //   helper=new FireBaseHelper(databaseReference);
 

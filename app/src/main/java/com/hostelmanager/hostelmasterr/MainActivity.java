@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -24,8 +25,11 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
@@ -47,12 +51,13 @@ public class MainActivity extends AppCompatActivity
     private Uri tri;
     private ProgressDialog progressDialog;
     PhoneAuthCredential phoneAuthCredential;
+    private String s1;
 
     @Override
     protected void onStart() {
         super.onStart();
 
-       firebaseAuth= FirebaseAuth.getInstance();
+        firebaseAuth= FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
 
@@ -73,11 +78,29 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
 
-
         firebaseAuth= FirebaseAuth.getInstance();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        String s1=FirebaseInstanceId.getInstance().getToken();
+        final FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
+        if(currentUser!=null) {
+
+            DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("Students");
+            database.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.hasChild(currentUser.getPhoneNumber())) {
+                        s1 = FirebaseInstanceId.getInstance().getToken();
+
+                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Students");
+                        mDatabase.child(currentUser.getPhoneNumber()).child("token").setValue(s1);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
 
 
         progressDialog = new ProgressDialog(this);

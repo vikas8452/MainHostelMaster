@@ -44,6 +44,7 @@ public class HostelSignUp extends AppCompatActivity implements AdapterView.OnIte
     private ScrollView sv;
     private LinearLayout ll;
     private ProgressBar progressBar;
+    private String luid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +101,7 @@ public class HostelSignUp extends AppCompatActivity implements AdapterView.OnIte
 
                                 ll.setVisibility(View.GONE);
                                 tv5.setText(getHostelByUID.getHname());
+                                luid = getHostelByUID.getLuid();
                                 sv.setVisibility(View.VISIBLE);
                             }
                         }
@@ -169,6 +171,7 @@ public class HostelSignUp extends AppCompatActivity implements AdapterView.OnIte
         hostelerInfo.setHostel(str3);
         hostelerInfo.setCollege(str4);
         hostelerInfo.setRoomno(str5);
+        hostelerInfo.setLuid(luid);
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
         String mon = sdf.format(Calendar.getInstance().getTime());
         int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -177,7 +180,7 @@ public class HostelSignUp extends AppCompatActivity implements AdapterView.OnIte
         progressBar.setVisibility(View.GONE);
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
-                .child("Hostels").child(str3).child(str5);
+                .child("Hostels").child(luid).child(str5);
         String key = databaseReference.push().getKey();
         ConfStatus confStatus = new ConfStatus();
         confStatus.setMobile(str2);

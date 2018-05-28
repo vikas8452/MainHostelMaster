@@ -22,10 +22,9 @@ FirebaseUser currrentUser=firebaseAuth.getCurrentUser();
     public void onTokenRefresh() {
         // Get updated InstanceID token.
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-        Toast.makeText(this, refreshedToken, Toast.LENGTH_SHORT).show();
         Log.d("dcq","Entered in the Receice");
         //Log.d(TAG, "Refreshed token: " + refreshedToken);
-       sendRegistrationToServer(refreshedToken);
+        sendRegistrationToServer(refreshedToken);
         // If you want to send messages to this application instance or
         // manage this apps subscriptions on the server side, send the
         // Instance ID token to your app server.
