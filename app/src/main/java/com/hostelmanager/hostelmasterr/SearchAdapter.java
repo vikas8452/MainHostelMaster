@@ -1,5 +1,6 @@
 package com.hostelmanager.hostelmasterr;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -40,7 +41,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         this.ratingCount = rating_Count;
         this.latitude=latitude;
         this.longitude=longitude;
-        Toast.makeText(context, "vikas kaise ho", Toast.LENGTH_SHORT).show();
+
     }
 
     class SearchViewHolder extends RecyclerView.ViewHolder {
@@ -59,7 +60,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             rating_Layout=itemView.findViewById(R.id.rating_Layout);
             rating_Description=itemView.findViewById(R.id.rating_Description);
              rating_Count=itemView.findViewById(R.id.rating_Count);
-        //    Toast.makeText(cc, "", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -69,6 +69,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         return new SearchAdapter.SearchViewHolder(view);
     }
 
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     public void onBindViewHolder(SearchViewHolder holder, final int position) {
 
@@ -83,13 +84,13 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
  holder.hostelName.setText(hostelNameList.get(position));
         Picasso.with(context).load(hostelPicList.get(position)).into(holder.hostelPic);
         LatLng from = new LatLng(latitude,longitude);
-        LatLng to = new LatLng(28.456957,77.497378);
+        LatLng to = new LatLng(28.472720,77.482002);
 
-        double dist= SphericalUtil.computeDistanceBetween(from,to);
+        float dist= (float) (SphericalUtil.computeDistanceBetween(from,to)/1000);
 
        // System.out.print(dist);
       //  holder.rating_Description.setText(ratingList.get(position));
-        holder.rating_Description.setText(Double.toString(dist));
+        holder.rating_Description.setText(String.format("%.2f",dist)+" km");
         holder.rating_Count.setText(ratingCount.get(position));
        // Toast.makeText(context, "hello", Toast.LENGTH_SHORT).show();
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {

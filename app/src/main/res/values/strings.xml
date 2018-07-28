@@ -35,6 +35,7 @@
     <string-array name="Colleges">
         <item>Choose College</item>
         <item>Accurate</item>
+        <item>Amity University</item>
         <item>F.M.G. College</item>
         <item>G.L. Bajaj</item>
         <item>Galgotias College</item>
@@ -46,6 +47,7 @@
         <item>N.I.E.T(new)</item>
         <item>N.I.E.T(old)</item>
         <item>Prince Institute</item>
+        <item>Sharda University</item>
         <item>United College</item>
     </string-array>
 

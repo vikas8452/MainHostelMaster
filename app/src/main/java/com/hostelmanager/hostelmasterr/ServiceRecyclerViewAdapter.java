@@ -33,6 +33,7 @@ public class ServiceRecyclerViewAdapter extends RecyclerView.Adapter<ServiceRecy
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem,parent,false);
         //dataList.add(R.drawable.ic_launcher_background);
 

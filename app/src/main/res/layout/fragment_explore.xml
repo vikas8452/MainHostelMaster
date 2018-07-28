@@ -1,17 +1,58 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/complete03"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:id="@+id/mainfrag"
-    tools:context="com.hostelmanager.hostelmasterr.Explore">
+  >
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <SearchView
+
+    <RelativeLayout
+        android:id="@+id/searchAreaBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        android:layout_marginLeft="10dp"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:layout_marginRight="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/searchArea"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:textColorHint="#aaa"
+            android:background="@null"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:gravity="center"
+            android:hint="Search" />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/front"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:paddingTop="5dp"
+        android:layout_alignParentLeft="true"
+
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/searchAreaBack"
+        android:layout_marginTop="2dp"
+        tools:ignore="MissingConstraints" />
+
+
+
 
 </RelativeLayout>
+

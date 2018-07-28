@@ -15,7 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/aaaaa"
-            tools:context="com.hostelmanager.hostelmasterr.MyIssues">
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            tools:context="com.hostelmanager.hostelmasterr.MyIssues"
+            tools:ignore="UselessParent">
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -32,7 +35,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ghgh" />
+                android:contentDescription="TODO" />
 
             <Spinner
                 android:id="@+id/issuesissuesp"
@@ -52,7 +55,6 @@
                 android:layout_marginTop="21dp"
                 android:ems="10"
                 android:hint="Description"
-                android:focusableInTouchMode="true"
                 android:inputType="textMultiLine" />
 
             <Button

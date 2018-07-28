@@ -61,9 +61,9 @@
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="23dp"
-            android:layout_below="@+id/fly"
+            android:layout_marginTop="73dp"
             android:ems="10"
             android:hint="PhoneNumber"
             android:inputType="phone" />
@@ -72,9 +72,8 @@
             android:id="@+id/otp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/phone"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/fly"
-            android:layout_marginTop="35dp"
             android:ems="10"
             android:hint="Enter OTP"
             android:inputType="numberPassword" />
@@ -85,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/phone"
             android:layout_centerHorizontal="true"
-            android:text="Send otp"
+            android:text="Verify"
             android:layout_marginTop="40dp"
             />
 
@@ -93,7 +92,7 @@
             android:id="@+id/verify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="verify"
+            android:text="Submit"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/otp"
             android:layout_marginTop="45dp" />

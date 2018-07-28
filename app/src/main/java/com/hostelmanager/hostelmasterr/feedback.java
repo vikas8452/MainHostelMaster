@@ -28,7 +28,7 @@ public class feedback extends AppCompatActivity {
 
 
     //email_type=findViewById(R.id.email_type);
-    ask=findViewById(R.id.ask);
+
     comment=findViewById(R.id.comment);
 
     snd_Button=findViewById(R.id.snd_Button);

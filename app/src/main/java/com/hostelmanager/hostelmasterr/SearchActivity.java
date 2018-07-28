@@ -251,9 +251,10 @@ static final int REQUEST_LOCATION=1;
                  //   Toast.makeText(getApplicationContext(), "Entered in for", Toast.LENGTH_SHORT).show();
                 String hostelName=snapshot.child("name").getValue(String.class);
                 String hostelPic=snapshot.child("image").getValue(String.class);
+
                 String rating=snapshot.child("rating").getValue(String.class);
                 String ratingCount=snapshot.child("ratingCount").getValue(String.class)+" Rating";
-                if(hostelName.toLowerCase().contains(searchedString.toLowerCase())){
+                if(hostelName.toLowerCase().startsWith(searchedString.toLowerCase())){
                   //  Toast.makeText(getApplicationContext(), "Entered in if", Toast.LENGTH_SHORT).show();
                     hostelNameList.add(hostelName);
                     hostelPicList.add(hostelPic);

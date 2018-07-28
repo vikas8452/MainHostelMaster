@@ -10,6 +10,7 @@
         app:cardCornerRadius="10dp"
         android:background="@color/cardview_dark_background"
         app:cardElevation="1dp"
+        app:cardBackgroundColor="@color/bg_login"
         app:cardMaxElevation="2dp"
         android:layout_centerInParent="true"
         >
@@ -18,8 +19,8 @@
             android:layout_height="match_parent">
             
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:scaleType="centerCrop"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/circleImage"

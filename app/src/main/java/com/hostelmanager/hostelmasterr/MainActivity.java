@@ -303,9 +303,11 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativefrag,explore).commit();
 */
-          Intent intent =new Intent (this,SearchActivity.class);
-          startActivity(intent);
-        } else if (id == R.id.myhostel) {
+            Explore explore=new Explore();
+            android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relativefrag,explore).commit();
+        }
+        else if (id == R.id.myhostel) {
             //startActivity(new Intent(this,HostelSignUp.class));
             MyHostell myHostell=new MyHostell();
             android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
@@ -316,28 +318,18 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativefrag , prof).commit();
 
-        } else if (id == R.id.mywallet) {
-            MyWallet myWallet=new MyWallet();
-            android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.relativefrag , myWallet).commit();
+        }
 
-
-        } else if (id == R.id.issues) {
+        else if (id == R.id.issues) {
             startActivity(new Intent(this,MyIssues.class));
-
-        }else if (id == R.id.referandearn) {
-           // startActivity(new Intent(this,refer_and_earn.class));
-            ReferandEarn referandEarn=new ReferandEarn();
-            android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.relativefrag , referandEarn).commit();
-
-        } else if (id == R.id.feedback) {
+        }
+        else if (id == R.id.feedback) {
             startActivity(new Intent(this,feedback.class));
 
-        } else if (id == R.id.workwithus) {
+        }/* else if (id == R.id.workwithus) {
             startActivity(new Intent(this,workwithus.class));
 
-        }else if (id == R.id.buyandSell) {
+        }*/else if (id == R.id.buyandSell) {
 
             Intent intent=new Intent(this,BuyAndSell.class);
           intent.putExtra("msg","");

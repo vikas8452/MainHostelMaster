@@ -16,18 +16,20 @@
             android:id="@+id/myaccount"
             android:icon="@drawable/myaccount"
             android:title="My Account" />
-        <item
+        <!--<item
             android:id="@+id/referandearn"
             android:icon="@drawable/rne"
             android:title="Refer and earn" />
+        -->
         <item
             android:id="@+id/issues"
             android:icon="@drawable/issue"
             android:title="Issues" />
-        <item
+       <!-- <item
             android:id="@+id/mywallet"
             android:icon="@drawable/wallet"
             android:title="My Wallet" />
+        -->
         <item
             android:id="@+id/buyandSell"
             android:icon="@drawable/host"
@@ -40,10 +42,10 @@
                 android:id="@+id/feedback"
                 android:icon="@drawable/feed"
                 android:title="Feedback" />
-            <item
+          <!--  <item
                 android:id="@+id/workwithus"
                 android:icon="@drawable/work"
-                android:title="Work With Us"/>
+                android:title="Work With Us"/>-->
             <item
                 android:id="@+id/aboutus"
                 android:icon="@drawable/about"

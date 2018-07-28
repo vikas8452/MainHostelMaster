@@ -1,67 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:background="#255">
-
-    <ImageView
-        android:id="@+id/hostelImage"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher" />
 
 
-    <TextView
-        android:id="@+id/hostelDesc"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView"
-        android:textSize="20sp"/>
-<LinearLayout
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:orientation="horizontal">
-
-    <TextView
-
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/rating"
-        android:textSize="18sp"
-        android:id="@+id/rating_gallery"
-
-     />
-
-    <TextView
-
-        style="@style/behindMenuItemLabel"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-
-        android:id="@+id/rating_Count_gallery"
-        android:textSize="18sp"/>
-
-
-</LinearLayout>
-
-    
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/hostelImageRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/servicesRecyclerView">
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-    </android.support.v7.widget.RecyclerView>
-</LinearLayout>
-</ScrollView>
+
+
+    <android.support.design.widget.CoordinatorLayout
+
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp">
+
+        <include layout="@layout/bottom_sheet"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_marginTop="508dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/coordinatorLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:srcCompat="@drawable/cross_most" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
+
