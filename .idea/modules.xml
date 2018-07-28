@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HostelMaster.iml" filepath="$PROJECT_DIR$/HostelMaster.iml" />
       <module fileurl="file://$PROJECT_DIR$/MainHostelMaster.iml" filepath="$PROJECT_DIR$/MainHostelMaster.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

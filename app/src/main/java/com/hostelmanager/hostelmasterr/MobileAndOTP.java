@@ -139,7 +139,7 @@ public class MobileAndOTP extends AppCompatActivity {
                 TimeUnit.SECONDS,   // Unit of timeout
                 this,               // Activity (for callback binding)
                 mCallbacks);        // OnVerificationStateChangedCallbacks
-        // [END start_phone_auth]
+          // [END start_phone_auth]
 
         mVerificationInProgress = true;
     }

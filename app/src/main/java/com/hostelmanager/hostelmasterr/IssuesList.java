@@ -51,6 +51,10 @@ public class IssuesList extends AppCompatActivity {
                 HostelerInfo hostelerInfo = dataSnapshot.getValue(HostelerInfo.class);
                 luid = hostelerInfo.getLuid();
                 room = hostelerInfo.getRoomno();
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Issues").child(luid).child(room);
+                databaseReference.keepSynced(true);
+                adapter=new MyItemRecyclerViewAdapter(getBaseContext(),retrieve(databaseReference));
+                gridView.setAdapter((ListAdapter) adapter);
             }
 
             @Override
@@ -72,12 +76,10 @@ public class IssuesList extends AppCompatActivity {
         currentUser=firebaseAuth.getCurrentUser();
         gridView = findViewById(R.id.gridissue);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Issues").child(luid).child(room);
-        databaseReference.keepSynced(true);
+
         //   helper=new FireBaseHelper(databaseReference);
 
-        adapter=new MyItemRecyclerViewAdapter(getBaseContext(),retrieve(databaseReference));
-        gridView.setAdapter((ListAdapter) adapter);
+
 
     }
 

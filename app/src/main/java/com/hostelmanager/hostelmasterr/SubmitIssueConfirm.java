@@ -67,7 +67,7 @@ public class SubmitIssueConfirm extends AppCompatDialogFragment {
 
             }
         });
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Issues").child(luid).child(room);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Issues");
 
         TextView tv1 = view.findViewById(R.id.dialogIssueSubmitionType);
         tv1.setText(s1);
@@ -116,11 +116,11 @@ public class SubmitIssueConfirm extends AppCompatDialogFragment {
                         sendRecieveIssues.setDescription(s2);
                         sendRecieveIssues.setMobile(firebaseUser.getPhoneNumber());
                         sendRecieveIssues.setStatus("0");
-                        sendRecieveIssues.setRoomno("105");
+                        sendRecieveIssues.setRoomno(room);
                         String key = databaseReference.push().getKey();
                         sendRecieveIssues.setUid(key);
 
-                        databaseReference.child(key).setValue(sendRecieveIssues);
+                        databaseReference.child(luid).child(room).child(key).setValue(sendRecieveIssues);
                     }
                 });
         return builder.create();

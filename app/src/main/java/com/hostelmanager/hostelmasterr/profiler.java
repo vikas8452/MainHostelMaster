@@ -1,6 +1,8 @@
 package com.hostelmanager.hostelmasterr;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -36,10 +38,10 @@ import com.hostelmanager.hostelmasterr.Model.HostelerInfo;
  */
 public class profiler extends Fragment {
 
-    private String name,hostel,roomno,college,year;
+    private String name,hostel,roomno,college,year,confStat;
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,chhos;
     private  DatabaseReference databaseReference,databaseReferenc;
-    private LinearLayout ll,ll2,ll3;
+    private LinearLayout ll,ll3;
 
 
     public profiler() {
@@ -61,7 +63,6 @@ public class profiler extends Fragment {
         tv6 = view.findViewById(R.id.sdyear);
         chhos = view.findViewById(R.id.changehos);
         ll = view.findViewById(R.id.statusshow);
-        ll2 = view.findViewById(R.id.chhos);
         ll3 = view.findViewById(R.id.statusshowe);
 
         final RelativeLayout rl = view.findViewById(R.id.loading);
@@ -116,14 +117,13 @@ public class profiler extends Fragment {
                                     for(DataSnapshot dds:dataSnapshot.getChildren()){
                                         ConfStatus confStatus = dds.getValue(ConfStatus.class);
                                         if(confStatus.getMobile().equals(mobile)){
+                                            confStat = confStatus.getStat();
                                             if(confStatus.getStat().equals("1")){
                                                 ll.setVisibility(View.VISIBLE);
                                             }
                                             if(confStatus.getStat().equals("3")){
-                                                ll2.setVisibility(View.VISIBLE);
                                                 ll3.setVisibility(View.VISIBLE);
                                             }
-
                                             break;
                                         }
                                     }
@@ -154,7 +154,33 @@ public class profiler extends Fragment {
         chhos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),HostelSignUp.class));
+                final AlertDialog.Builder alertbox = new AlertDialog.Builder(v.getRootView().getContext());
+
+                if(confStat.equals("2")) {
+                    alertbox.setMessage("If you change your hostel you will not be able to enjoy facilities of your current hostel"
+                    +" such as :\n\n1.Getting lunch token\n2. Getting Notification\n3. Sending Issues\n\n  and many more");
+                    alertbox.setTitle("Change Hostel");
+
+                    alertbox.setPositiveButton("CONFIRM",
+                            new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface arg0,
+                                                    int arg1) {
+                                    startActivity(new Intent(getContext(), HostelSignUp.class));
+                                }
+                            })
+                            .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+                    alertbox.show();
+                }
+                else {
+                    startActivity(new Intent(getContext(), HostelSignUp.class));
+                }
+
             }
         });
 

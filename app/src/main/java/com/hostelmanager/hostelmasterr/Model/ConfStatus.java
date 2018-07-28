@@ -7,6 +7,16 @@ package com.hostelmanager.hostelmasterr.Model;
 public class ConfStatus {
     String mobile;
     String stat;
+    String room;
+    String name;
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
 
     public String getName() {
         return name;
@@ -15,8 +25,6 @@ public class ConfStatus {
     public void setName(String name) {
         this.name = name;
     }
-
-    String name;
 
     public String getMobile() {
         return mobile;
@@ -34,11 +42,12 @@ public class ConfStatus {
         this.stat = stat;
     }
 
-    public ConfStatus(String mobile, String stat,String name) {
+    public ConfStatus(String mobile, String stat,String name,String room) {
 
         this.mobile = mobile;
         this.stat = stat;
         this.name = name;
+        this.room = room;
     }
 
     public ConfStatus() {

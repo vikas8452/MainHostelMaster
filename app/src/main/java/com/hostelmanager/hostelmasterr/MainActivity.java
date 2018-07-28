@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
-       firebaseAuth= FirebaseAuth.getInstance();
+        firebaseAuth= FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
 
@@ -342,9 +342,9 @@ public class MainActivity extends AppCompatActivity
             Intent intent=new Intent(this,BuyAndSell.class);
           intent.putExtra("msg","");
             startActivity(intent);
-        }/*else if (id == R.id.rateus) {
-            startActivity(new Intent(this,MyIssues.class));
-        }*/
+        }else if (id == R.id.rateus) {
+            startActivity(new Intent(this,QRCodeScanner.class));
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

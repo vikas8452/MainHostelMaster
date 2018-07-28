@@ -65,14 +65,13 @@ public class BuyBookList extends AppCompatActivity {
 
     private void fetchData(DataSnapshot dataSnapshot)
     {
-        buySellSubjects.clear();
+        //buySellSubjects.clear();
 
         for (DataSnapshot ds : dataSnapshot.getChildren())
         {
             Log.d("ds","Hell");
             try {
                 BuySellSubject spacecraft = ds.getValue(BuySellSubject.class);
-                
                 buySellSubjects.add(spacecraft);
                 // Toast.makeText(getActivity(), buySellSubjects.get(0).getBookName() + "", Toast.LENGTH_SHORT).show();
             }
@@ -87,7 +86,7 @@ public class BuyBookList extends AppCompatActivity {
     public ArrayList<BuySellSubject> retrieve(DatabaseReference db)
     {
         Log.d("sdsd","Entered in the listener");
-        db.child(currentUser.getPhoneNumber()).addChildEventListener(new ChildEventListener() {
+        db.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Log.d("sdsd","Calling Fetch data");
@@ -119,7 +118,7 @@ public class BuyBookList extends AppCompatActivity {
         return  buySellSubjects;
     }
 
-/*
+    /*
     @Override
     public void onStart() {
         super.onStart();

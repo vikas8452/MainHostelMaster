@@ -4,7 +4,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.location.gps" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -112,7 +114,8 @@
         </service>
 
         <activity android:name=".showBookForBuy" />
-        <activity android:name=".BuyBookList"></activity>
+        <activity android:name=".BuyBookList" />
+        <activity android:name=".QRCodeScanner"></activity>
     </application>
 
 </manifest>

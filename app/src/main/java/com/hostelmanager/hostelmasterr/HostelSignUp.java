@@ -186,6 +186,7 @@ public class HostelSignUp extends AppCompatActivity implements AdapterView.OnIte
         confStatus.setMobile(str2);
         confStatus.setName(str1);
         confStatus.setStat("1");
+        confStatus.setRoom(str5);
         databaseReference.child(str2).setValue(confStatus);
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Students");
