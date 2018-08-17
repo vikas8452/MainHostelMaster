@@ -30,7 +30,8 @@
             android:background="@null"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:gravity="center"
-            android:hint="Search" />
+            android:hint="Royal Paradise"
+             />
     </RelativeLayout>
     <ImageView
         android:layout_width="match_parent"

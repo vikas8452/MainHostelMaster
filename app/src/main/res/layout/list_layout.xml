@@ -18,6 +18,13 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/ic_launcher_background"
         tools:ignore="VectorDrawableCompat" />
+<LinearLayout
+    android:id="@+id/hostelContain"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_below="@+id/hostelPic">
 
     <TextView
         android:id="@+id/hostelName"
@@ -32,17 +39,24 @@
         android:text="ROYAL PARADISE HOSTEL"
         android:textSize="16sp"
         android:textStyle="bold" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+
     <LinearLayout
         android:id="@+id/rating_Layout"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/hostelName"
+        android:layout_below="@+id/hostelContain"
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
         android:layout_marginTop="2dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="NotSibling">
 
 
         <TextView

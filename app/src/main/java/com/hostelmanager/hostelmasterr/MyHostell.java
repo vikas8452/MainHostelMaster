@@ -73,7 +73,7 @@ public class MyHostell extends Fragment {
         mess_Button = view.findViewById(R.id.mess_Button);
         get_Token = view.findViewById(R.id.get_Token);
 
-        myRef.addValueEventListener(new ValueEventListener() {
+    /*    myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -88,7 +88,7 @@ public class MyHostell extends Fragment {
                 // Failed to read value
 
             }
-        });
+        });*/
         get_Token.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -14,9 +14,9 @@
             android:id="@+id/fly"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="23dp"
-            android:layout_alignParentTop="true">
+            android:layout_marginTop="23dp">
 
             <TextView
                 android:id="@+id/noshower"
@@ -39,8 +39,8 @@
                 android:id="@+id/nochange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="55dp"
+                android:layout_marginTop="20dp"
                 android:text="Click here"
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
 
@@ -49,8 +49,8 @@
                 android:id="@+id/noshowe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="135dp"
+                android:layout_marginTop="20dp"
                 android:text="To change"
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -84,18 +84,17 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/phone"
             android:layout_centerHorizontal="true"
-            android:text="Verify"
             android:layout_marginTop="40dp"
-            />
+            android:text="Verify" />
 
         <Button
             android:id="@+id/verify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/otp"
-            android:layout_marginTop="45dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:text="Submit" />
 
     </RelativeLayout>
 </ScrollView>
